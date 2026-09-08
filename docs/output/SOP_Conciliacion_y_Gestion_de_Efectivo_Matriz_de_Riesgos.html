@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Plantilla Matriz de Riesgos - PapuOol</title>
+  <title>Matriz de Riesgos: Conciliación y Gestión de Efectivo - Grupo Flamingos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,7 +101,6 @@
       color: #00A9B5;
     }
 
-    /* Logo institucional PapuOol */
     /* Logo institucional */
     .logo-container {
       display: inline-flex;
@@ -138,22 +137,22 @@
       margin-bottom: 18px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      gap: 14px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .doc-field {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
     .field-label {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
+      color: #64748B;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: #64748B;
     }
 
     .field-value {
@@ -166,160 +165,159 @@
     }
 
     .field-badge {
-      font-size: 10px;
+      background: #FEF7E6;
+      color: #D99E1A;
+      border: 1px solid rgba(229, 168, 35, 0.4);
+      font-size: 10.5px;
       font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 12px;
-      background-color: #E2E8F0;
-      color: #16255C;
+      padding: 1px 6px;
+      border-radius: 4px;
     }
 
-    /* Caja de Alerta y Enfoque de Riesgo */
+    /* Caja de Advertencia Operativa */
     .warning-box {
       background-color: #FFF0F1;
       border-left: 4px solid #E54747;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 14px 18px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       display: flex;
-      align-items: flex-start;
       gap: 12px;
+      align-items: flex-start;
     }
 
     .warning-icon {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       color: #E54747;
       flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .warning-content {
-      flex: 1;
+      margin-top: 1px;
     }
 
     .warning-title {
       font-size: 12.5px;
       font-weight: 800;
       color: #E54747;
-      margin-bottom: 3px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 2px;
     }
 
     .warning-text {
-      font-size: 11.5px;
+      font-size: 12.5px;
       color: #64748B;
       line-height: 1.45;
     }
 
-    /* Barra de Herramientas y Filtros */
+    /* Toolbar: Búsqueda y Filtros */
     .toolbar-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 14px;
       flex-wrap: wrap;
     }
 
     .search-box {
-      display: flex;
-      align-items: center;
-      background: #FFFFFF;
-      border: 1px solid #CBD5E1;
-      border-radius: 10px;
-      padding: 8px 12px;
-      gap: 8px;
+      position: relative;
       flex: 1 1 240px;
-      max-width: 400px;
-    }
-
-    .search-box:focus-within {
-      border-color: #00A9B5;
-      box-shadow: 0 0 0 2px rgba(0, 169, 181, 0.15);
-    }
-
-    .search-icon {
-      color: #94A3B8;
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
+      max-width: 380px;
     }
 
     .search-input {
-      border: none;
-      outline: none;
       width: 100%;
+      padding: 9px 12px 9px 34px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
       font-family: inherit;
-      font-size: 12px;
-      color: #16255C;
+      font-size: 12.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: #00A9B5;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      color: #94A3B8;
     }
 
     .filter-pills {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .filter-btn {
-      background: #F1F5F9;
-      border: 1px solid #E2E8F0;
-      border-radius: 20px;
-      padding: 5px 12px;
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      color: #475569;
+      font-family: inherit;
       font-size: 11px;
       font-weight: 700;
-      color: #475569;
+      padding: 6px 12px;
+      border-radius: 999px;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.2s;
     }
 
-    .filter-btn.active, .filter-btn:hover {
+    .filter-btn:hover {
+      background: #E2E8F0;
+    }
+
+    .filter-btn.active {
       background: #16255C;
       color: #FFFFFF;
       border-color: #16255C;
     }
 
-    /* Tabla de Matriz de Riesgos */
+    /* Tabla Técnica de Riesgos */
     .table-container {
       background: #FFFFFF;
-      border: 1px solid #E2E8F0;
+      border: 1px solid #CBD5E1;
       border-radius: 14px;
-      overflow-x: auto;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      overflow: hidden;
       margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(22, 37, 92, 0.04);
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .risk-table {
       width: 100%;
-      min-width: 800px;
       border-collapse: collapse;
-      font-size: 12px;
+      text-align: left;
+      font-size: 12.5px;
+      min-width: 820px;
     }
 
     .risk-table th {
-      background-color: #16255C;
-      color: #FFFFFF;
+      padding: 12px 14px;
+      font-size: 11.5px;
       font-weight: 800;
-      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      padding: 12px 14px;
-      text-align: left;
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .risk-table th:last-child {
-      border-right: none;
+      background: #16255C;
+      color: #FFFFFF;
+      border: none;
+      vertical-align: middle;
     }
 
     .risk-table td {
-      padding: 14px;
-      border-bottom: 1px solid #F1F5F9;
-      vertical-align: top;
-      line-height: 1.45;
+      padding: 12px 14px;
+      border-bottom: 1px solid #E2E8F0;
       color: #334155;
+      vertical-align: top;
+      line-height: 1.5;
     }
 
     .risk-table tr:nth-child(even) td {
@@ -340,19 +338,20 @@
 
     .act-icon {
       color: #00A9B5;
-      margin-top: 2px;
+      font-size: 10px;
+      margin-top: 3px;
       flex-shrink: 0;
     }
 
-    /* Badges de Riesgo y Control */
     .badge-pill {
       display: inline-block;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
       padding: 3px 8px;
       border-radius: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .badge-preventivo {
@@ -374,12 +373,14 @@
     }
 
     .risk-level-high {
+      display: inline-block;
       background: #FEE2E2;
       color: #991B1B;
       font-weight: 800;
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 10px;
+      margin-top: 4px;
     }
 
     /* Footer Note Box */
@@ -411,12 +412,8 @@
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 8px;
-      }
-      .main-title {
-        font-size: 20px;
-      }
+      body { padding: 8px; }
+      .main-title { font-size: 20px; }
     }
   </style>
 </head>
@@ -449,34 +446,34 @@
     <section class="control-doc-card">
       <div class="doc-field">
         <span class="field-label">Organización</span>
-        <span class="field-value">[Nombre de la Organización]</span>
+        <span class="field-value">Grupo Flamingos</span>
       </div>
       <div class="doc-field">
         <span class="field-label">Formato & Revisión</span>
         <span class="field-value">
           FR-MC-02
-          <span class="field-badge">REV: 00</span>
+          <span class="field-badge">REV: 01</span>
         </span>
       </div>
       <div class="doc-field">
         <span class="field-label">Clave del Proceso</span>
-        <span class="field-value">[Clave del proceso]</span>
+        <span class="field-value">PROC-TES-001</span>
       </div>
       <div class="doc-field">
         <span class="field-label">Elaboró</span>
-        <span class="field-value">[Nombre de quien elabora]</span>
+        <span class="field-value">Especialista de Procesos</span>
       </div>
       <div class="doc-field">
         <span class="field-label">Autorizó AS IS</span>
-        <span class="field-value">[Nombre de quien autoriza]</span>
+        <span class="field-value">Coordinador de Tesorería</span>
       </div>
       <div class="doc-field">
         <span class="field-label">Fecha de Emisión</span>
-        <span class="field-value">[Fecha de elaboración]</span>
+        <span class="field-value">08/09/2026</span>
       </div>
       <div class="doc-field" style="grid-column: 1 / -1;">
         <span class="field-label">Observaciones</span>
-        <span class="field-value" style="font-weight: 500; font-size: 12.5px; color: #475569; line-height: 1.4;">[Ingresar observaciones]</span>
+        <span class="field-value" style="font-weight: 500; font-size: 12.5px; color: #475569; line-height: 1.4;">Levantamiento AS IS enfocado en el arqueo diario, validación de sumatorias en efectivo y mitigación de desfalcos o descuadres en bóveda.</span>
       </div>
     </section>
 
@@ -490,7 +487,7 @@
       <div class="warning-content">
         <div class="warning-title">Lineamiento de Mitigación y Auditoría AS IS</div>
         <p class="warning-text">
-          Cada actividad evaluada debe iniciar obligatoriamente con un verbo en infinitivo y mapear de forma inequívoca el peligro intrínseco, el riesgo financiero u operativo resultante, y la tipología del control de mitigación aplicado.
+          Cada actividad evaluada inicia obligatoriamente con un verbo en infinitivo y mapea de forma inequívoca el peligro intrínseco, el riesgo financiero u operativo resultante, y la tipología del control de mitigación aplicado.
         </p>
       </div>
     </section>
@@ -526,49 +523,70 @@
           </tr>
         </thead>
         <tbody id="riskTableBody">
-          <tr class="risk-row" data-type="preventivo">
-            <td>
-              <div class="act-title">
-                <span class="act-icon">▶</span>
-                [Describa la actividad 1]
-              </div>
-            </td>
-            <td>[Describa el peligro 1]</td>
-            <td>
-              <div>[Describa el riesgo 1]</div>
-              <span class="risk-level-high">Crítico</span>
-            </td>
-            <td>[Describa el control 1]</td>
-            <td>
-              <span class="badge-pill badge-preventivo">Preventivo</span>
-            </td>
-          </tr>
           <tr class="risk-row" data-type="detectivo">
             <td>
               <div class="act-title">
                 <span class="act-icon">▶</span>
-                [Describa la actividad 2]
+                Cotejar inventario físico vs digital de efectivo
               </div>
             </td>
-            <td>[Describa el peligro 2]</td>
-            <td>[Describa el riesgo 2]</td>
-            <td>[Describa el control 2]</td>
+            <td>Faltante físico de dinero en caja/bóveda por robo hormiga o extravío durante el turno</td>
             <td>
-              <span class="badge-pill badge-detectivo">Detectivo</span>
+              <div>Faltante de dinero y daño patrimonial directo con descuadre contable en tesorería</div>
+              <span class="risk-level-high">Crítico</span>
+            </td>
+            <td>Recuento físico obligatorio con doble firma y custodia bajo caja de seguridad con registro de acceso</td>
+            <td>
+              <span class="badge-pill badge-detectivo">Detectivo / Manual</span>
             </td>
           </tr>
-          <tr class="risk-row" data-type="correctivo">
+          <tr class="risk-row" data-type="preventivo">
             <td>
               <div class="act-title">
                 <span class="act-icon">▶</span>
-                [Describa la actividad 3]
+                Filtrar concepto y método de pago en sistema
               </div>
             </td>
-            <td>[Describa el peligro 3]</td>
-            <td>[Describa el riesgo 3]</td>
-            <td>[Describa el control 3]</td>
+            <td>Registro erróneo del método de pago como "Efectivo" cuando correspondió a transferencia</td>
             <td>
-              <span class="badge-pill badge-correctivo">Correctivo</span>
+              <div>Distorsión en saldos de bóveda e inflado ficticio de dinero físico exigible en arqueo</div>
+            </td>
+            <td>Validación cruzada con recibo provisional emitido y cotejo de cuenta receptora en App Web</td>
+            <td>
+              <span class="badge-pill badge-preventivo">Preventivo / Automático</span>
+            </td>
+          </tr>
+          <tr class="risk-row" data-type="preventivo">
+            <td>
+              <div class="act-title">
+                <span class="act-icon">▶</span>
+                Modificar estado de conciliación ante diferencias
+              </div>
+            </td>
+            <td>Alteración indebida de estatus a "En Averiguación" sin sustento para encubrir faltantes</td>
+            <td>
+              <div>Pérdida de visibilidad gerencial de faltantes y ocultamiento de desfalcos internos</div>
+            </td>
+            <td>Exigencia obligatoria de firma digital de acuse de auditoría y congelamiento del saldo observado</td>
+            <td>
+              <span class="badge-pill badge-preventivo">Preventivo / Automático</span>
+            </td>
+          </tr>
+          <tr class="risk-row" data-type="preventivo">
+            <td>
+              <div class="act-title">
+                <span class="act-icon">▶</span>
+                Exportar corte y listado de conciliación diaria
+              </div>
+            </td>
+            <td>Omisión del arqueo diario por sobrecarga operativa acumulando saldos sin corte formal</td>
+            <td>
+              <div>Pérdida de deslinde de responsabilidad entre custodios de turno e imposibilidad de rastreo</div>
+              <span class="risk-level-high">Crítico</span>
+            </td>
+            <td>Bloqueo automático del módulo en App Web al inicio de la jornada si el corte previo no está cerrado</td>
+            <td>
+              <span class="badge-pill badge-preventivo">Preventivo / Automático</span>
             </td>
           </tr>
         </tbody>
@@ -578,7 +596,7 @@
     <!-- Pie de página (Speaker Note / Context Box) -->
     <footer class="footer-note-box">
       <span class="footer-tag">[MATRIZ AS IS]</span>
-      <span class="footer-text">Registrada y autorizada para el proceso <code>[Clave del proceso]</code> en cumplimiento del protocolo de segregación de roles y control operacional.</span>
+      <span class="footer-text">Registrada y autorizada para el proceso <code>PROC-TES-001</code> en cumplimiento del protocolo de segregación de roles y control operacional.</span>
     </footer>
 
     <!-- Línea de cierre dorada -->

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ficha Técnica: Notificación y Gestión de Lotes Cancelables - Grupo Flamingos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #334155;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .widget-container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    /* Trama superior decorativa */
+    .top-strip {
+      width: 100%;
+      height: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .strip-pattern {
+      width: 180px;
+      max-width: 60%;
+      height: 6px;
+      background: repeating-linear-gradient(
+        45deg,
+        #CBD5E1,
+        #CBD5E1 1.5px,
+        transparent 1.5px,
+        transparent 6px
+      );
+      opacity: 0.7;
+    }
+
+    /* Header superior */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #E5A823;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #16255C;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      word-break: break-word;
+    }
+
+    .main-title .highlight {
+      color: #00A9B5;
+    }
+
+    /* Logo institucional */
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 16px;
+      color: #16255C;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      color: #00A9B5;
+      letter-spacing: 1.2px;
+    }
+
+    /* Ficha Documental de Encabezado */
+    .doc-meta-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .doc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .doc-field-label {
+      font-size: 10px;
+      font-weight: 800;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .doc-field-value {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #16255C;
+    }
+
+    .badge-rev {
+      display: inline-flex;
+      align-items: center;
+      background-color: #FEF7E6;
+      color: #D99E1A;
+      border: 1px solid rgba(229, 168, 35, 0.4);
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      width: fit-content;
+      margin-top: 2px;
+    }
+
+    /* Objetivo y Alcance */
+    .process-summary-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #00A9B5;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .summary-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #16255C;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-text {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #E2E8F0;
+    }
+
+    .scope-item {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .scope-item-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #00A9B5;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scope-item-desc {
+      font-size: 12.5px;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* Sección SIPOC */
+    .section-title-wrap {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #16255C;
+      letter-spacing: -0.2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-badge {
+      background: #16255C;
+      color: #FFFFFF;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Tabla SIPOC */
+    .sipoc-card {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 12px rgba(22, 37, 92, 0.05);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sipoc-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12.5px;
+      min-width: 900px;
+    }
+
+    .sipoc-table th {
+      padding: 12px 14px;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: #16255C;
+      color: #FFFFFF;
+      border: none;
+      vertical-align: middle;
+    }
+
+    .sipoc-table th.col-p {
+      background: #00A9B5;
+      color: #FFFFFF;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .sipoc-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .sipoc-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .sipoc-table tr:hover td {
+      background-color: #F1F5F9;
+    }
+
+    /* Resaltado de la columna Proceso */
+    .sipoc-table td.cell-p {
+      background-color: #F0FDFA !important;
+      border-left: 2px solid #00A9B5;
+      border-right: 2px solid #00A9B5;
+      font-weight: 600;
+      color: #16255C;
+    }
+
+    .sipoc-table tr:nth-child(even) td.cell-p {
+      background-color: #E6FBFB !important;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #00A9B5;
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    /* Grilla de Indicadores (KPIs) */
+    .kpis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 4px solid #00A9B5;
+    }
+
+    .kpi-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .kpi-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: #16255C;
+      line-height: 1.3;
+    }
+
+    .kpi-target-badge {
+      background: #E6FBFB;
+      color: #00A9B5;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(0, 169, 181, 0.2);
+    }
+
+    .kpi-formula-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+
+    .kpi-formula-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #64748B;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .kpi-formula-code {
+      font-family: 'Consolas', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #16255C;
+      word-break: break-all;
+    }
+
+    .kpi-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .kpi-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .kpi-detail-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+
+    .kpi-detail-value {
+      color: #16255C;
+      font-weight: 700;
+    }
+
+    /* Caja de Guidelines Metodológicos */
+    .guidelines-box {
+      background: #FFFDF5;
+      border: 1px solid #F3E2B8;
+      border-left: 4px solid #E5A823;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .guidelines-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #B8860B;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guidelines-list {
+      list-style: none;
+      font-size: 11.5px;
+      color: #64748B;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px;
+    }
+
+    .guidelines-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+
+    .guideline-dot {
+      color: #E5A823;
+      font-weight: 800;
+    }
+
+    @media (max-width: 640px) {
+      .main-title { font-size: 20px; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .kpis-grid { grid-template-columns: 1fr; }
+      .guidelines-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-container">
+    
+    <!-- Trama superior -->
+    <div class="top-strip">
+      <div class="strip-pattern"></div>
+    </div>
+
+    <!-- Header superior con Logo -->
+    <header class="header-bar">
+      <div class="header-text">
+        <span class="eyebrow">Macroproceso: Gestión de Cartera Vencida y Cobranza</span>
+        <h1 class="main-title">Ficha Técnica: <span class="highlight">Notificación y Gestión de Lotes Cancelables</span></h1>
+      </div>
+      <div class="logo-container">
+        <div class="logo-text">
+          DESARROLLO
+          <span>FLAMINGOS</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ficha de Metadatos Documentales -->
+    <section class="doc-meta-card">
+      <div class="doc-field">
+        <span class="doc-field-label">Clave Documento</span>
+        <span class="doc-field-value">SOP-COB-01</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Revisión</span>
+        <div class="badge-rev">REV 01</div>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Organización</span>
+        <span class="doc-field-value">Grupo Flamingos</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Tipo de Formato</span>
+        <span class="doc-field-value">Ficha Técnica de Proceso</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Clave del Proceso</span>
+        <span class="doc-field-value">PROC-COB-001</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Nivel del Proceso</span>
+        <span class="doc-field-value">Nivel 1 (Subproceso)</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Responsable</span>
+        <span class="doc-field-value">Analista de Ventas / Contable</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Herramienta Oficial</span>
+        <span class="doc-field-value">App Web Flamingos / WhatsApp</span>
+      </div>
+    </section>
+
+    <!-- Resumen y Alcance del Proceso -->
+    <section class="process-summary-card">
+      <div class="summary-section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        1. Objetivo del Proceso
+      </div>
+      <p class="summary-text">
+        Monitorear, identificar y alertar sistemáticamente los lotes comercializados que superen el límite de mensualidades vencidas (meses de gracia), garantizando la gestión preventiva de cobranza mediante notificaciones oficiales por WhatsApp con plantilla homologada y registro inalterable en base de datos para sustento del deslinde o eventual rescisión contractual.
+      </p>
+
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="scope-item-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Punto de Inicio
+          </div>
+          <div class="scope-item-desc">
+            Ejecución del JOB mensual de barrido de cartera O acceso del Analista al módulo de Lotes Cancelables.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-item-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+            Punto de Término
+          </div>
+          <div class="scope-item-desc">
+            Envío auditado de la notificación por WhatsApp con registro en BD O actualización de parámetros por Administrador.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Matriz SIPOC -->
+    <section class="section-title-wrap">
+      <h2 class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2. Matriz Operativa SIPOC
+      </h2>
+      <span class="section-badge">10 Actividades Mapeadas</span>
+    </section>
+
+    <div class="sipoc-card">
+      <div class="table-responsive">
+        <table class="sipoc-table">
+          <thead>
+            <tr>
+              <th style="width: 16%;">Proveedores (S)</th>
+              <th style="width: 18%;">Entradas (I)</th>
+              <th class="col-p" style="width: 32%;">Proceso: Actividades (P)</th>
+              <th style="width: 18%;">Salidas (O)</th>
+              <th style="width: 16%;">Clientes (C)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>App Web Flamingos</strong></td>
+              <td>Cron / Planificador de tareas mensual</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">1</span>
+                  <span><strong>Ejecutar</strong> el barrido automático de cartera vencida según día parametrizado.</span>
+                </div>
+              </td>
+              <td>Listado depurado de contratos con mora excesiva</td>
+              <td>Analista de Cobranza</td>
+            </tr>
+            <tr>
+              <td><strong>App Web Flamingos</strong></td>
+              <td>Base de datos transaccional de pagos</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">2</span>
+                  <span><strong>Identificar</strong> clientes con morosidad máxima y disparar alerta global en dashboard.</span>
+                </div>
+              </td>
+              <td>Banners y contadores críticos en interfaz</td>
+              <td>Gerente de Finanzas</td>
+            </tr>
+            <tr>
+              <td><strong>Cliente / Caja</strong></td>
+              <td>Pago parcial o liquidación de adeudo</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">3</span>
+                  <span><strong>Retirar</strong> automáticamente del catálogo de cancelables a clientes regularizados.</span>
+                </div>
+              </td>
+              <td>Depuración en vivo de la lista de mora crítica</td>
+              <td>Analista de Ventas / Contable</td>
+            </tr>
+            <tr>
+              <td><strong>Administrador del Sistema</strong></td>
+              <td>Parámetros de política de cobranza</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">4</span>
+                  <span><strong>Acceder</strong> al panel de configuración para definir meses de gracia y día del JOB.</span>
+                </div>
+              </td>
+              <td>Parámetros institucionales de tolerancia editados</td>
+              <td>App Web Flamingos</td>
+            </tr>
+            <tr>
+              <td><strong>Analista de Ventas / Contable</strong></td>
+              <td>Necesidad de revisión operativa</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">5</span>
+                  <span><strong>Ingresar</strong> al submódulo de "Lotes Cancelables" en la plataforma digital.</span>
+                </div>
+              </td>
+              <td>Solicitud de consulta en panel de morosidad extrema</td>
+              <td>App Web Flamingos</td>
+            </tr>
+            <tr>
+              <td><strong>App Web Flamingos</strong></td>
+              <td>Solicitud de apertura de módulo</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">6</span>
+                  <span><strong>Forzar</strong> la verificación dinámica en tiempo real contra los últimos pagos registrados.</span>
+                </div>
+              </td>
+              <td>Tabla consolidada y recalculada al instante</td>
+              <td>Analista de Ventas / Contable</td>
+            </tr>
+            <tr>
+              <td><strong>Analista de Ventas / Contable</strong></td>
+              <td>Lote en estatus crítico desplegado</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">7</span>
+                  <span><strong>Seleccionar</strong> el lote en mora y accionar la opción de envío de WhatsApp.</span>
+                </div>
+              </td>
+              <td>Disparo del modal de confirmación de mensaje</td>
+              <td>App Web Flamingos</td>
+            </tr>
+            <tr>
+              <td><strong>App Web Flamingos</strong></td>
+              <td>Variables del contrato y adeudo</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">8</span>
+                  <span><strong>Cargar</strong> el modal con la plantilla homologada de cobranza y variables de saldo.</span>
+                </div>
+              </td>
+              <td>Texto legalmente aprobado listo para transmisión</td>
+              <td>Analista de Ventas / Contable</td>
+            </tr>
+            <tr>
+              <td><strong>Analista de Ventas / Contable</strong></td>
+              <td>Plantilla verificada en pantalla</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">9</span>
+                  <span><strong>Confirmar</strong> la transmisión del mensaje canalizando a la interfaz de mensajería.</span>
+                </div>
+              </td>
+              <td>Mensaje formal de advertencia entregado al cliente</td>
+              <td>Cliente Titular</td>
+            </tr>
+            <tr>
+              <td><strong>App Web Flamingos</strong></td>
+              <td>Transmisión confirmada del mensaje</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">10</span>
+                  <span><strong>Registrar</strong> en base de datos la fecha, hora, usuario y número de aviso enviado.</span>
+                </div>
+              </td>
+              <td>Historial inalterable de requerimientos con validez legal</td>
+              <td>Coordinación Legal / Cobranza</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Indicadores de Desempeño (KPIs) -->
+    <section class="section-title-wrap">
+      <h2 class="section-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+        3. Indicadores de Desempeño (KPIs)
+      </h2>
+      <span class="section-badge">Métricas Clave</span>
+    </section>
+
+    <div class="kpis-grid">
+      <!-- KPI 1 -->
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-header">
+            <span class="kpi-name">Oportunidad de Notificación Preventiva (ONP)</span>
+            <span class="kpi-target-badge">Meta: &ge; 95%</span>
+          </div>
+          <div class="kpi-formula-box">
+            <div class="kpi-formula-label">Fórmula de Medición</div>
+            <div class="kpi-formula-code">(Lotes Notificados en &lt;48h / Total Cancelables) &times; 100</div>
+          </div>
+        </div>
+        <div class="kpi-details-grid">
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Frecuencia</span>
+            <span class="kpi-detail-value">Quincenal</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Responsable</span>
+            <span class="kpi-detail-value">Analista de Cobranza</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Unidad</span>
+            <span class="kpi-detail-value">Porcentaje (%)</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Fuente</span>
+            <span class="kpi-detail-value">Módulo Lotes Cancelables</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-header">
+            <span class="kpi-name">Tasa de Recuperación por Alerta WhatsApp (TRAW)</span>
+            <span class="kpi-target-badge">Meta: &ge; 40%</span>
+          </div>
+          <div class="kpi-formula-box">
+            <div class="kpi-formula-label">Fórmula de Medición</div>
+            <div class="kpi-formula-code">(Lotes Regularizados tras Notificación / Total) &times; 100</div>
+          </div>
+        </div>
+        <div class="kpi-details-grid">
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Frecuencia</span>
+            <span class="kpi-detail-value">Mensual</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Responsable</span>
+            <span class="kpi-detail-value">Analista de Ventas / Contable</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Unidad</span>
+            <span class="kpi-detail-value">Porcentaje (%)</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Fuente</span>
+            <span class="kpi-detail-value">Base de Datos Transaccional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caja de Guidelines / TBCs del Proceso -->
+    <div class="guidelines-box">
+      <div class="guidelines-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Puntos de Control y Reglas de Negocio Validadas (TBC)
+      </div>
+      <ul class="guidelines-list">
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Parámetro Directivo:</strong> Solo el Administrador del Sistema puede modificar los meses de gracia o día del JOB.</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Validación Síncrona:</strong> El sistema verifica dinámicamente en tiempo real si el cliente ya abonó antes de notificar.</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Evidencia Legal:</strong> Cada mensaje registra obligatoriamente en base de datos el número de aviso emitido y usuario.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Matriz de Riesgos: Validación Legal y Emisión de Contratos - Grupo Flamingos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #334155;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .widget-container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    /* Trama superior decorativa */
+    .top-strip {
+      width: 100%;
+      height: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .strip-pattern {
+      width: 180px;
+      max-width: 60%;
+      height: 6px;
+      background: repeating-linear-gradient(
+        45deg,
+        #CBD5E1,
+        #CBD5E1 1.5px,
+        transparent 1.5px,
+        transparent 6px
+      );
+      opacity: 0.7;
+    }
+
+    /* Header superior */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #E5A823;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #16255C;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      word-break: break-word;
+    }
+
+    .main-title .highlight {
+      color: #00A9B5;
+    }
+
+    /* Logo institucional */
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 16px;
+      color: #16255C;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
+      color: #00A9B5;
+      letter-spacing: 1.2px;
+    }
+
+    /* Ficha de Control Documental */
+    .control-doc-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .doc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .doc-field-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748B;
+    }
+
+    .doc-field-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #16255C;
+      word-break: break-word;
+    }
+
+    .badge-rev {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #E6FBFB;
+      color: #00A9B5;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      width: fit-content;
+      border: 1px solid rgba(0, 169, 181, 0.2);
+    }
+
+    /* Banner de Alerta Metodológica */
+    .warning-banner {
+      background-color: #FFF0F1;
+      border-left: 4px solid #E54747;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 12.5px;
+      color: #991B1B;
+      line-height: 1.5;
+    }
+
+    .warning-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Toolbar y Filtros */
+    .toolbar-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      color: #475569;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: #F1F5F9;
+      color: #16255C;
+    }
+
+    .filter-btn.active {
+      background: #16255C;
+      color: #FFFFFF;
+      border-color: #16255C;
+    }
+
+    .search-input {
+      padding: 6px 12px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 12px;
+      outline: none;
+      min-width: 220px;
+      font-family: inherit;
+    }
+
+    .search-input:focus {
+      border-color: #00A9B5;
+    }
+
+    /* Tarjeta de Tabla */
+    .matrix-card {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(22, 37, 92, 0.05);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12px;
+      min-width: 960px;
+    }
+
+    .matrix-table th {
+      padding: 12px 14px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: #16255C;
+      color: #FFFFFF;
+      border: none;
+      vertical-align: middle;
+    }
+
+    .matrix-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .matrix-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .matrix-table tr:hover td {
+      background-color: #F1F5F9;
+    }
+
+    /* Badges */
+    .badge-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .badge-preventivo {
+      background: #E6FBFB;
+      color: #00A9B5;
+      border: 1px solid rgba(0, 169, 181, 0.3);
+    }
+
+    .badge-detectivo {
+      background: #FEF7E6;
+      color: #D99E1A;
+      border: 1px solid rgba(217, 158, 26, 0.3);
+    }
+
+    .badge-risk {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .risk-critico {
+      background: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #F87171;
+    }
+
+    .risk-alto {
+      background: #FFEDD5;
+      color: #9A3412;
+      border: 1px solid #FB923C;
+    }
+
+    .risk-medio {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }
+
+    .activity-title {
+      font-weight: 700;
+      color: #16255C;
+    }
+
+    /* Guidelines */
+    .guidelines-box {
+      background: #FFFDF5;
+      border: 1px solid #F3E2B8;
+      border-left: 4px solid #E5A823;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+    }
+
+    .guidelines-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #B8860B;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .guidelines-list {
+      list-style: none;
+      font-size: 11.5px;
+      color: #64748B;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px;
+    }
+
+    .guidelines-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+
+    .guideline-dot {
+      color: #E5A823;
+      font-weight: 800;
+    }
+
+    @media (max-width: 640px) {
+      .main-title { font-size: 20px; }
+      .toolbar-wrap { flex-direction: column; align-items: stretch; }
+      .search-input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-container">
+    
+    <!-- Trama superior -->
+    <div class="top-strip">
+      <div class="strip-pattern"></div>
+    </div>
+
+    <!-- Header superior con Logo -->
+    <header class="header-bar">
+      <div class="header-text">
+        <span class="eyebrow">Gestión de Riesgos Operativos</span>
+        <h1 class="main-title">Matriz AS IS: <span class="highlight">Validación Legal y Emisión de Contratos</span></h1>
+      </div>
+      <div class="logo-container">
+        <div class="logo-text">
+          DESARROLLO
+          <span>FLAMINGOS</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ficha de Control Documental -->
+    <section class="control-doc-card">
+      <div class="doc-field">
+        <span class="doc-field-label">Formato de Operación</span>
+        <span class="doc-field-value">FR-MC-02</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Revisión</span>
+        <div class="badge-rev">REV 01</div>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Organización</span>
+        <span class="doc-field-value">Grupo Flamingos</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Clave del Proceso</span>
+        <span class="doc-field-value">PROC-LEG-001</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Fecha Elaboración</span>
+        <span class="doc-field-value">07/09/2026</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Elaboró</span>
+        <span class="doc-field-value">Especialista de Procesos</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Autorizó AS IS</span>
+        <span class="doc-field-value">Gerente de Operaciones y Finanzas</span>
+      </div>
+      <div class="doc-field">
+        <span class="doc-field-label">Estado Auditoría</span>
+        <span class="doc-field-value" style="color: #00A9B5;">Validado AS IS</span>
+      </div>
+    </section>
+
+    <!-- Banner de Advertencia Metodológica -->
+    <div class="warning-banner">
+      <svg class="warning-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E54747" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <div>
+        <strong>Alerta Jurídica y Certeza Patrimonial:</strong> Este proceso define la titularidad de los lotes y la validez contractual. Todo expediente debe contar con dictamen formal del Área Legal y resguardo físico en bóveda antes de habilitar el bloqueo definitivo en inventario.
+      </div>
+    </div>
+
+    <!-- Barra de Filtros y Búsqueda -->
+    <div class="toolbar-wrap">
+      <div class="filter-group">
+        <button class="filter-btn active" onclick="filtrarTabla('todos')">Todos (5)</button>
+        <button class="filter-btn" onclick="filtrarTabla('preventivo')">Preventivos</button>
+        <button class="filter-btn" onclick="filtrarTabla('detectivo')">Detectivos</button>
+        <button class="filter-btn" onclick="filtrarTabla('critico')">Críticos / Altos</button>
+      </div>
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar actividad, peligro o control..." onkeyup="buscarEnTabla()">
+    </div>
+
+    <!-- Tabla de Evaluación de Riesgos -->
+    <div class="matrix-card">
+      <div class="table-responsive">
+        <table class="matrix-table" id="tablaRiesgos">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Actividad Operativa</th>
+              <th style="width: 22%;">Peligro Detectado</th>
+              <th style="width: 24%;">Riesgo / Impacto Potencial</th>
+              <th style="width: 20%;">Control Mitigante</th>
+              <th style="width: 12%; text-align: center;">Tipo de Control</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-tipo="preventivo" data-riesgo="alto">
+              <td class="activity-title">Recolectar y enviar documentos de identidad del cliente</td>
+              <td>Uso de canales no seguros (chats personales) o recepción de documentos incompletos e ilegibles.</td>
+              <td>
+                Vulneración de datos personales confidenciales (LFPDPPP) y retrasos críticos en dictamen de apertura.
+                <br><span class="badge-risk risk-alto">Riesgo Alto</span>
+              </td>
+              <td>Carga obligatoria en repositorio digital seguro en App Web bajo checklist estandarizado de admisión.</td>
+              <td style="text-align: center;">
+                <span class="badge-control badge-preventivo">Preventivo / Manual</span>
+              </td>
+            </tr>
+            <tr data-tipo="preventivo" data-riesgo="critico">
+              <td class="activity-title">Auditar veracidad, vigencia y legibilidad documental</td>
+              <td>Presentación de identificaciones vencidas, documentos alterados o suplantación de identidad del comprador.</td>
+              <td>
+                Nulidad absoluta o relativa del contrato de compraventa, controversias legales y pérdidas patrimoniales.
+                <br><span class="badge-risk risk-critico">Riesgo Crítico</span>
+              </td>
+              <td>Verificación formal en listas nominales oficiales (INE/SAT) y auditoría de firmas por el Área Legal.</td>
+              <td style="text-align: center;">
+                <span class="badge-control badge-preventivo">Preventivo / Manual</span>
+              </td>
+            </tr>
+            <tr data-tipo="preventivo" data-riesgo="critico">
+              <td class="activity-title">Generar contrato de compraventa y anexos paramétricos</td>
+              <td>Modificación no autorizada de cláusulas, error en montos pactados o lote incorrecto.</td>
+              <td>
+                Contingencias legales por vicios del consentimiento y afectación financiera severa al negocio inmobiliario.
+                <br><span class="badge-risk risk-critico">Riesgo Crítico</span>
+              </td>
+              <td>Generación automatizada de contratos desde plantillas paramétricas bloqueadas ligadas a la cotización en CRM.</td>
+              <td style="text-align: center;">
+                <span class="badge-control badge-preventivo">Preventivo / Automático</span>
+              </td>
+            </tr>
+            <tr data-tipo="detectivo" data-riesgo="critico">
+              <td class="activity-title">Realizar acto protocolario de firma de contrato</td>
+              <td>Firma por apoderado sin facultades vigentes o ausencia de ratificación de firmas del comprador.</td>
+              <td>
+                Inoponibilidad del contrato ante tribunales o autoridades del Registro Público de la Propiedad.
+                <br><span class="badge-risk risk-critico">Riesgo Crítico</span>
+              </td>
+              <td>Verificación previa de testimonios notariales vigentes y presencia obligatoria de testigos instrumentales.</td>
+              <td style="text-align: center;">
+                <span class="badge-control badge-detectivo">Detectivo / Manual</span>
+              </td>
+            </tr>
+            <tr data-tipo="preventivo" data-riesgo="critico">
+              <td class="activity-title">Bloquear lote y actualizar a "Venta Financiada" en App</td>
+              <td>Demora u omisión en la formalización digital del contrato en la plataforma inmobiliaria.</td>
+              <td>
+                Riesgo de sobreventa o doble venta del mismo lote a un segundo cliente con responsabilidad civil/penal.
+                <br><span class="badge-risk risk-critico">Riesgo Crítico</span>
+              </td>
+              <td>Bloqueo automático provisional del lote desde emisión de contrato y confirmación definitiva tras la firma.</td>
+              <td style="text-align: center;">
+                <span class="badge-control badge-preventivo">Preventivo / Automático</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Guidelines Metodológicos -->
+    <div class="guidelines-box">
+      <div class="guidelines-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Lineamientos de Control y Certeza Jurídica
+      </div>
+      <ul class="guidelines-list">
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Custodia de Originales:</strong> Cada contrato original firmado se deposita en bóveda con folio único de archivo físico.</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Anticipación de Bloqueo:</strong> El módulo de inventario bloquea preventivamente el lote para evitar incidentes de sobreventa.</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>Subsanación Ágil:</strong> Cualquier expediente incompleto debe subsanarse en un plazo máximo de 48 horas hábiles.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    function filtrarTabla(categoria) {
+      const botones = document.querySelectorAll('.filter-btn');
+      botones.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const filas = document.querySelectorAll('#tablaRiesgos tbody tr');
+      filas.forEach(fila => {
+        const tipo = fila.getAttribute('data-tipo');
+        const riesgo = fila.getAttribute('data-riesgo');
+
+        if (categoria === 'todos') {
+          fila.style.display = '';
+        } else if (categoria === 'preventivo' && tipo === 'preventivo') {
+          fila.style.display = '';
+        } else if (categoria === 'detectivo' && tipo === 'detectivo') {
+          fila.style.display = '';
+        } else if (categoria === 'critico' && (riesgo === 'critico' || riesgo === 'alto')) {
+          fila.style.display = '';
+        } else {
+          fila.style.display = 'none';
+        }
+      });
+    }
+
+    function buscarEnTabla() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const filas = document.querySelectorAll('#tablaRiesgos tbody tr');
+
+      filas.forEach(fila => {
+        const texto = fila.innerText.toLowerCase();
+        if (texto.includes(input)) {
+          fila.style.display = '';
+        } else {
+          fila.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

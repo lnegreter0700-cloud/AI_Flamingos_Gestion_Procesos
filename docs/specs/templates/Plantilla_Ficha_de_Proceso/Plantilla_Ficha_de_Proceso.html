@@ -102,34 +102,31 @@
     }
 
     /* Logo institucional PapuOol */
+    /* Logo institucional */
     .logo-container {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       flex-shrink: 0;
-    }
-
-    .logo-icon {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
+      text-align: right;
     }
 
     .logo-text {
       font-weight: 800;
       font-size: 16px;
       color: #16255C;
-      letter-spacing: 0.8px;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
       display: flex;
       flex-direction: column;
-      line-height: 1;
+      align-items: flex-end;
     }
 
     .logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 800;
       color: #00A9B5;
-      font-size: 7.5px;
-      letter-spacing: 1.5px;
-      margin-top: 2px;
+      letter-spacing: 1.2px;
     }
 
     /* Ficha Documental de Encabezado */
@@ -520,25 +517,10 @@
           Ficha Técnica de Proceso y <span class="highlight">Matriz SIPOC</span>
         </h1>
       </div>
-      <div class="logo-container" aria-label="Logo PapuOol Consultoría">
-        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="45" stroke="#16255C" stroke-width="2" stroke-dasharray="3 3" opacity="0.4"/>
-          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="#16255C" stroke-width="3" fill="none"/>
-          <line x1="50" y1="15" x2="50" y2="85" stroke="#00A9B5" stroke-width="2.5"/>
-          <line x1="20" y1="32" x2="80" y2="68" stroke="#00A9B5" stroke-width="2.5"/>
-          <line x1="20" y1="68" x2="80" y2="32" stroke="#00A9B5" stroke-width="2.5"/>
-          <circle cx="50" cy="15" r="4.5" fill="#00A9B5"/>
-          <circle cx="80" cy="32" r="4.5" fill="#00A9B5"/>
-          <circle cx="80" cy="68" r="4.5" fill="#00A9B5"/>
-          <circle cx="50" cy="85" r="4.5" fill="#00A9B5"/>
-          <circle cx="20" cy="68" r="4.5" fill="#00A9B5"/>
-          <circle cx="20" cy="32" r="4.5" fill="#00A9B5"/>
-          <circle cx="50" cy="50" r="7" fill="#E5A823"/>
-          <circle cx="50" cy="50" r="10" stroke="#E5A823" stroke-width="1.5" opacity="0.6"/>
-        </svg>
+      <div class="logo-container">
         <div class="logo-text">
-          PAPUOOL
-          <span>CONSULTORÍA</span>
+          DESARROLLO
+          <span>FLAMINGOS</span>
         </div>
       </div>
     </header>
