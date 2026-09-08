@@ -1,12 +1,9 @@
-# Matriz de Riesgos (AS IS)
-
-**Organización:** [Nombre de la Organización]
-**Formato de Operación:** FR-MC-02
-**Revisión:** 00
-
----
+# Matriz de Riesgos y Controles Operativos (AS IS)
 
 ## Control Documental
+* **Organización:** [Nombre de la Organización]
+* **Formato de Operación:** FR-MC-02
+* **Revisión:** 00
 * **Clave del Proceso:** [Clave del proceso]
 * **Elaboró:** [Nombre de quien elabora]
 * **Fecha de Elaboración:** [Fecha de elaboración]
@@ -15,12 +12,18 @@
 
 ---
 
+## Lineamiento de Mitigación y Auditoría AS IS
+> Cada actividad evaluada debe iniciar obligatoriamente con un verbo en infinitivo y mapear de forma inequívoca el peligro intrínseco, el riesgo financiero u operativo resultante, y la tipología del control de mitigación aplicado (Preventivo, Detectivo o Correctivo).
+
+---
+
 ## Evaluación de Riesgos
 
 | Actividad | Peligro | Riesgo | Control | Tipo de Control |
 | :--- | :--- | :--- | :--- | :--- |
-| [Describa la actividad 1] | [Describa el peligro 1] | [Describa el riesgo 1] | [Describa el control 1] | [Tipo de control 1] |
-| [Describa la actividad 2] | [Describa el peligro 2] | [Describa el riesgo 2] | [Describa el control 2] | [Tipo de control 2] |
+| [Describa la actividad 1] | [Describa el peligro 1] | [Describa el riesgo 1] (Crítico) | [Describa el control 1] | Preventivo / Manual |
+| [Describa la actividad 2] | [Describa el peligro 2] | [Describa el riesgo 2] | [Describa el control 2] | Detectivo / Automático |
+| [Describa la actividad 3] | [Describa el peligro 3] | [Describa el riesgo 3] | [Describa el control 3] | Correctivo / Manual |
 
 ---
 
