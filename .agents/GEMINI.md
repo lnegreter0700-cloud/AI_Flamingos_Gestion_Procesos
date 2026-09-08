@@ -72,16 +72,16 @@ Todas las vistas `.html` deben ser 100% homogéneas y compatibles para embed en 
   - Contenedor raíz `.widget-container` (máximo 1240px, centrado).
   - Trama superior decorativa `.top-strip` con patrón `.strip-pattern`.
   - Encabezado `.header-bar` con `.eyebrow` dorado (`#E5A823`), `.main-title` bicolor (Azul `#16255C` y Cyan `#00A9B5`) y logotipo corporativo.
-  - Tarjetas de metadatos (`.doc-meta-card` o `.control-doc-card`) con campos estandarizados y badges.
-  - Sección de objetivo/advertencia con bordes de 4px acentuados.
+  - Tarjetas de metadatos (`.doc-meta-card` o `.control-doc-card`) con campos estandarizados. **La etiqueta de Revisión (.badge-rev) es obligatoriamente amarilla** (fondo `#FEF7E6`, texto `#D99E1A`, borde `rgba(229, 168, 35, 0.4)`). Prohibido usar badges cian para la revisión.
+  - **Cuadro de Objetivo y Alcance (.process-summary-card):** Modelo canónico con **borde izquierdo sólido de 4px en Cyan (`border-left: 4px solid #00A9B5`)**, borde perimetral `1px solid #E2E8F0`, y sombra suave `box-shadow: 0 2px 8px rgba(0,0,0,0.02)`. Queda terminantemente prohibido usar bordes superiores azul marino (`border-top: 4px solid #16255C`). Debe incluir división interna de alcance con `Punto de Inicio` y `Punto de Término`.
   - Tablas interactivas con encabezados en Azul Marino `#16255C`, badges de colores para estatus/roles/tipos de control, y scripts de filtrado/búsqueda en vivo integrados.
-  - Sección de KPIs o resumen con diseño modular tipo tarjetas (`.kpi-card`).
+  - Sección de KPIs o resumen con diseño modular tipo tarjetas (`.kpi-card`) con acento izquierdo en Cyan `#00A9B5`.
   - Pie de página `.footer-note-box` con acento azul marino y barra dorada inferior `.bottom-gold-bar`.
 - **Tokens Oficiales de Color:**
   - `Azul Marino Profundo (#16255C):` Encabezados principales, banner Nivel 0, títulos de sección y bordes de acento.
-  - `Cyan Turquesa Vibrante (#00A9B5):` Columna de Proceso en SIPOC, enlaces interactivos, badges preventivos y acentos visuales.
+  - `Cyan Turquesa Vibrante (#00A9B5):` Borde izquierdo del Cuadro de Objetivos (`.process-summary-card`), columna de Proceso en SIPOC, enlaces interactivos, badges preventivos y acentos visuales.
   - `Cyan Translúcido (#F0FDFA / #E6FBFB):` Fondo de actividades en SIPOC y badges de riesgo bajo/preventivo.
-  - `Dorado Corporativo (#E5A823 / #B8860B):` Badges de control detectivo y riesgo medio.
+  - `Dorado Corporativo (#E5A823 / #B8860B) y Amarillo Pastel (#FEF7E6 / #D99E1A):` Eyebrows, badges de Revisión (`.badge-rev`), control detectivo y riesgo medio.
   - `Amarillo Pastel Cálido (#FDF5D8):` Fondo de proceso padre Nivel 1 en el inventario.
   - `Coral / Alerta (#E54747 / #FFF0F1):` Controles correctivos, riesgos críticos/altos y cajas de advertencia metodológica.
   - `Neutros Corporativos:` `#FFFFFF` (fondo base), `#F4F7FB` / `#F8FAFC` (zebra striping), `#334155` (texto lectura), `#64748B` (texto muted), `#CBD5E1` (bordes de 1px).

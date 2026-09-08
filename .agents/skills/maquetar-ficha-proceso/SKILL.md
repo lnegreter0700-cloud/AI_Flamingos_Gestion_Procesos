@@ -15,8 +15,9 @@ Esta habilidad norma la construcción, edición y aseguramiento gráfico de la *
 * **Color Primario (Títulos & Encabezados):** Azul Marino Profundo (`#16255C` / `#111A44`).
 * **Acento Tecnológico (Acciones & Destacados):** Cyan Turquesa Vibrante (`#00A9B5` / `#0B9EA8`).
 * **Acento Secundario (Eyebrows, Badges, Nodos):** Amarillo Mostaza / Dorado (`#E5A823` / `#D99E1A`).
+* **Badge de Revisión (Estandarizado):** Fondo amarillo pastel (`#FEF7E6`), texto amarillo dorado (`#D99E1A`), borde `1px solid rgba(229, 168, 35, 0.4)` y `border-radius: 6px`.
 * **Fondo de Tarjetas & Paneles:** Blanco puro (`#FFFFFF`) o Azul Hielo (`#F8FAFC`), borde de 1px en `#E2E8F0` y curvatura `border-radius: 14px`.
-* **Caja de Objetivo:** Fondo translúcido Cyan/Menta (`#F0FDFA`), borde izquierdo sólido de 4px en Cyan (`#00A9B5`).
+* **Caja de Objetivo y Alcance (.process-summary-card):** Fondo blanco (`#FFFFFF`), borde perimetral `1px solid #E2E8F0`, **borde izquierdo sólido obligatorio de 4px en Cyan (`border-left: 4px solid #00A9B5`)**, curvatura `border-radius: 12px`, y sombra suave `box-shadow: 0 2px 8px rgba(0,0,0,0.02)`. Incluye desglose de alcance en dos cajas con `Punto de Inicio` y `Punto de Término`.
 * **Texto de Cuerpo y Listas:** Gris Pizarra Oscuro (`#334155` / `#475569`).
 
 ---
@@ -36,28 +37,34 @@ Cualquier entregable HTML de Ficha de Proceso debe poder pegarse directamente en
 
 ### A. Encabezado de Marca
 * **Trama Superior Decorativa:** Contenedor `.top-strip` con trama de líneas diagonales grises de 45°.
-* **Eyebrow:** `[DOCUMENTACIÓN TÉCNICA | MODELADO AS IS]` en dorado (`#E5A823`).
-* **Título Bimodal:** Sujeto en Azul Marino (`#16255C`) + concepto clave en Cyan (`#00A9B5`).
-* **Logotipo PapuOol (Top-Right):** Isotipo nodal reticular geodésico en SVG inline + texto `PAPUOOL / CONSULTORÍA`.
+* **Eyebrow:** `Macroproceso: [Nombre del Macroproceso]` en dorado (`#E5A823`).
+* **Título Bimodal:** Prefijo en Azul Marino (`#16255C`) + nombre del proceso destacado en Cyan (`#00A9B5`).
+* **Logotipo Institucional (Top-Right):** Texto tipográfico dual `DESARROLLO` (Azul Marino) / `FLAMINGOS` (Cyan).
 
-### B. Cinta de Metadatos Documentales
-Disposición en tarjetas compactas con:
-* `Organización`
-* `Nombre del Proceso`
-* `Clave del Documento` con badge de `REV [No. Rev]`
-* `Nivel Operativo` en badge cyan
-* `Responsable del Proceso` (cargo organizacional)
-* `Tipo de Formato`
+### B. Cinta de Metadatos Documentales (.doc-meta-card)
+Disposición en cuadrícula responsiva con:
+* `Clave Documento`
+* `Revisión`: Etiqueta `.badge-rev` obligatoria en **amarillo** (`#FEF7E6` / `#D99E1A`).
+* `Organización`: *Grupo Flamingos*
+* `Tipo de Formato`: *Ficha Técnica de Proceso*
+* `Clave del Proceso`
+* `Nivel del Proceso`
+* `Responsable` (cargo organizacional formal)
+* `Herramienta Oficial`
 
-### C. Caja de Objetivo del Proceso
-Contenedor destacado con icono de diana/objetivo vectorial y texto sintético de propósito de negocio.
+### C. Caja de Objetivo y Alcance (.process-summary-card)
+* **Estilo Visual Mandatorio:** Borde izquierdo de 4px en Cyan (`#00A9B5`), borde general en `#E2E8F0` y sombra sutil `box-shadow: 0 2px 8px rgba(0,0,0,0.02)`.
+* **Título de Sección:** `1. Objetivo del Proceso` acompañado de icono vectorial circular `(i)` en `#16255C`.
+* **Texto de Propósito:** Resumen ejecutivo de la función del proceso en tiempo presente o infinitivo.
+* **Alcance Dividido (.scope-grid):**
+  * `Punto de Inicio`: Con icono vectorial play (`>`) en Cyan `#00A9B5`.
+  * `Punto de Término`: Con icono vectorial cuadro (`[]`) en Cyan `#00A9B5`.
 
-### D. Matriz SIPOC Visual (5 Columnas)
-* **S (Proveedores / Suppliers):** Encabezado Azul Marino `#16255C`, tarjeta con lista de proveedores.
-* **I (Entradas / Inputs):** Encabezado Azul Marino `#16255C`, tarjeta con insumos requeridos.
-* **P (Proceso / Actividades):** **Columna Central Destacada** con borde y cabecera en Cyan `#00A9B5`.
-  * **Regla de Oro:** Cada actividad debe iniciar estrictamente con un verbo en infinitivo (*Verificar*, *Calcular*, *Generar*).
-  * Viñetas numeradas correlativamente (1., 2., 3...).
+### D. Matriz SIPOC Operativa (.sipoc-card)
+Tabla estructurada en `.sipoc-table` con:
+* **Cabecera Azul Marino (#16255C):** Para Proveedores, Entradas, Salidas y Clientes.
+* **Columna Central Proceso (#00A9B5):** Cabecera en Cyan `#00A9B5`, fondo de celdas alternado en cyan pastel (`#F0FDFA` / `#E6FBFB`) con bordes laterales de 2px en `#00A9B5`.
+* **Actividades Numeradas:** Insignia circular `.step-number` en Cyan con texto blanco + verbo en infinitivo (*Verificar*, *Validar*, *Registrar*).
 * **O (Salidas / Outputs):** Encabezado Azul Marino `#16255C`, entregables resultantes.
 * **C (Clientes / Customers):** Encabezado Azul Marino `#16255C`, receptores del valor generado.
 

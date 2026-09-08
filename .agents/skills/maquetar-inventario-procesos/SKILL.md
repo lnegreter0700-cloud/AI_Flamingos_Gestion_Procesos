@@ -59,7 +59,7 @@ Cualquier entregable HTML de Inventario de Procesos debe poder pegarse directame
     1. `ID` en código monospace cyan (ej. `1.1`, `1.2`).
     2. `Nombre del Subproceso` en negrita pizarra `#1E293B`.
     3. `Nivel` (etiqueta `Nivel 1 (Operativo)`).
-    4. `Documentación` (botón de enlace con icono SVG para abrir la ficha o matriz).
+    4. `Documentación Dual & Diagrama` (trío de botones compactos: `Ficha` [cian], `Riesgos` [cian] y `Diagrama` [dorado/amarillo `#FEF7E6`/`#D99E1A` con enlace directo al PDF en `assets`]).
 
 ### E. Cierre
 * **Footer Note Box:** Fondo `#F8FAFC`, borde izquierdo de 4px en `#16255C`, prefijo `[CONTROL DE INVENTARIO]`.

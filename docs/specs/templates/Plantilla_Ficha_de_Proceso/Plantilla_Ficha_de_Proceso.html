@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Plantilla Ficha de Proceso - PapuOol</title>
+  <title>Ficha Técnica: [Nombre del Proceso] - Grupo Flamingos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,7 +101,6 @@
       color: #00A9B5;
     }
 
-    /* Logo institucional PapuOol */
     /* Logo institucional */
     .logo-container {
       display: inline-flex;
@@ -145,377 +144,383 @@
     .doc-field {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
 
-    .field-label {
+    .doc-field-label {
       font-size: 10px;
       font-weight: 800;
+      color: #64748B;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: #64748B;
     }
 
-    .field-value {
+    .doc-field-value {
       font-size: 13.5px;
       font-weight: 700;
       color: #16255C;
+    }
+
+    .badge-rev {
+      display: inline-flex;
+      align-items: center;
+      background-color: #FEF7E6;
+      color: #D99E1A;
+      border: 1px solid rgba(229, 168, 35, 0.4);
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      width: fit-content;
+      margin-top: 2px;
+    }
+
+    /* Objetivo y Alcance */
+    .process-summary-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #00A9B5;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .summary-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #16255C;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-text {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #E2E8F0;
+    }
+
+    .scope-item {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .scope-item-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #00A9B5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .pill-badge {
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
-
-    .pill-gold {
-      background-color: #E5A823;
-      color: #FFFFFF;
-    }
-
-    .pill-cyan {
-      background-color: #E6FBFB;
-      color: #00A9B5;
-      border: 1px solid rgba(0, 169, 181, 0.3);
-    }
-
-    /* Tarjeta de Objetivo del Proceso */
-    .objective-card {
-      background: linear-gradient(135deg, #F0FDFA 0%, #F8FAFC 100%);
-      border: 1px solid #CCFBF1;
-      border-left: 4px solid #00A9B5;
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 22px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .obj-icon {
-      width: 22px;
-      height: 22px;
-      color: #00A9B5;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .obj-title {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      color: #00A9B5;
-      margin-bottom: 2px;
-    }
-
-    .obj-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: #16255C;
+    .scope-item-desc {
+      font-size: 12.5px;
+      color: #475569;
       line-height: 1.45;
     }
 
-    /* Sección de Encabezado SIPOC */
-    .section-header {
+    /* Titular de Secciones */
+    .section-title-wrap {
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .section-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 800;
       color: #16255C;
+      letter-spacing: -0.2px;
       display: flex;
       align-items: center;
       gap: 8px;
-      letter-spacing: -0.2px;
     }
 
-    /* Grilla de SIPOC (5 Columnas) */
-    .sipoc-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .sipoc-column {
-      background: #F8FAFC;
-      border: 1px solid #E2E8F0;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .sipoc-column:hover {
-      border-color: #CBD5E1;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    }
-
-    .sipoc-column.process-col {
-      background: #FFFFFF;
-      border: 1.5px solid #00A9B5;
-      box-shadow: 0 4px 12px rgba(0, 169, 181, 0.08);
-    }
-
-    .sipoc-header {
-      background-color: #16255C;
+    .section-badge {
+      background: #16255C;
       color: #FFFFFF;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .sipoc-column.process-col .sipoc-header {
-      background: linear-gradient(135deg, #00A9B5 0%, #0B9EA8 100%);
-    }
-
-    .sipoc-letter {
-      font-size: 14px;
-      font-weight: 900;
-      background: rgba(255, 255, 255, 0.2);
-      width: 22px;
-      height: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-    }
-
-    .sipoc-col-name {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      flex: 1;
     }
 
-    .sipoc-body {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      flex: 1;
-    }
-
-    .sipoc-item {
+    /* Tabla SIPOC */
+    .sipoc-card {
       background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 8px;
-      padding: 8px 10px;
+      border: 1px solid #CBD5E1;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 12px rgba(22, 37, 92, 0.05);
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sipoc-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12.5px;
+      min-width: 900px;
+    }
+
+    .sipoc-table th {
+      padding: 12px 14px;
       font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      background: #16255C;
+      color: #FFFFFF;
+      border: none;
+      vertical-align: middle;
+    }
+
+    .sipoc-table th.col-p {
+      background: #00A9B5;
+      color: #FFFFFF;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .sipoc-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #E2E8F0;
       color: #334155;
-      line-height: 1.4;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .sipoc-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .sipoc-table tr:hover td {
+      background-color: #F1F5F9;
+    }
+
+    /* Resaltado de la columna Proceso */
+    .sipoc-table td.cell-p {
+      background-color: #F0FDFA !important;
+      border-left: 2px solid #00A9B5;
+      border-right: 2px solid #00A9B5;
+      font-weight: 600;
+      color: #16255C;
+    }
+
+    .sipoc-table tr:nth-child(even) td.cell-p {
+      background-color: #E6FBFB !important;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #00A9B5;
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
       display: flex;
       align-items: flex-start;
       gap: 6px;
     }
 
-    .sipoc-column.process-col .sipoc-item {
-      border-left: 3px solid #00A9B5;
-      font-weight: 600;
-    }
-
-    .item-bullet {
-      color: #00A9B5;
-      font-weight: 900;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* Sección de Indicadores (KPIs) */
-    .kpi-grid {
+    /* Grilla de Indicadores (KPIs) */
+    .kpis-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 18px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
     .kpi-card {
       background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 14px;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
       padding: 18px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.15s;
-    }
-
-    .kpi-card:hover {
-      border-color: #CBD5E1;
+      justify-content: space-between;
+      border-left: 4px solid #00A9B5;
     }
 
     .kpi-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #F1F5F9;
-      padding-bottom: 10px;
-    }
-
-    .kpi-title-wrap {
-      display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
-    }
-
-    .kpi-icon-box {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: #E6FBFB;
-      color: #00A9B5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      margin-bottom: 12px;
     }
 
     .kpi-name {
       font-size: 14px;
       font-weight: 800;
       color: #16255C;
+      line-height: 1.3;
+    }
+
+    .kpi-target-badge {
+      background: #E6FBFB;
+      color: #00A9B5;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(0, 169, 181, 0.2);
     }
 
     .kpi-formula-box {
-      background-color: #F8FAFC;
+      background: #F8FAFC;
       border: 1px solid #E2E8F0;
       border-radius: 8px;
       padding: 10px 12px;
+      margin-bottom: 14px;
     }
 
-    .formula-label {
+    .kpi-formula-label {
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
       color: #64748B;
+      letter-spacing: 0.5px;
       margin-bottom: 4px;
     }
 
-    .formula-code {
-      font-family: monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: #00A9B5;
-      background: #FFFFFF;
-      padding: 4px 8px;
-      border-radius: 4px;
-      border: 1px solid #E2E8F0;
-      display: inline-block;
-      width: 100%;
-    }
-
-    .kpi-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .kpi-meta-item {
-      background: #F8FAFC;
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid #F1F5F9;
-    }
-
-    .kpi-meta-label {
-      font-weight: 700;
-      color: #64748B;
-      margin-bottom: 2px;
-    }
-
-    .kpi-meta-value {
-      font-weight: 800;
+    .kpi-formula-code {
+      font-family: 'Consolas', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
       color: #16255C;
+      word-break: break-all;
     }
 
-    /* Footer Note Box */
-    .footer-note-box {
-      margin-top: 10px;
-      background-color: #F8FAFC;
-      border-left: 4px solid #16255C;
-      border-radius: 8px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
+    .kpi-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       font-size: 11.5px;
-      color: #475569;
     }
 
-    .footer-tag {
-      font-weight: 800;
+    .kpi-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .kpi-detail-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+
+    .kpi-detail-value {
       color: #16255C;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
+      font-weight: 700;
     }
 
-    .bottom-gold-bar {
-      width: 100%;
-      height: 3px;
-      background-color: #E5A823;
-      margin-top: 14px;
-      border-radius: 2px;
+    /* Caja de Guidelines Metodológicos */
+    .guidelines-box {
+      background: #FFFDF5;
+      border: 1px solid #F3E2B8;
+      border-left: 4px solid #E5A823;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
     }
 
-    /* Responsive Breakpoints */
-    @media (max-width: 1000px) {
-      .sipoc-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .guidelines-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #B8860B;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    @media (max-width: 650px) {
-      body {
-        padding: 8px;
-      }
-      .main-title {
-        font-size: 20px;
-      }
-      .sipoc-grid {
-        grid-template-columns: 1fr;
-      }
-      .kpi-grid {
-        grid-template-columns: 1fr;
-      }
+    .guidelines-list {
+      list-style: none;
+      font-size: 11.5px;
+      color: #64748B;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px;
+    }
+
+    .guidelines-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.4;
+    }
+
+    .guideline-dot {
+      color: #E5A823;
+      font-weight: 800;
+    }
+
+    @media (max-width: 640px) {
+      .main-title { font-size: 20px; }
+      .scope-grid { grid-template-columns: 1fr; }
+      .kpis-grid { grid-template-columns: 1fr; }
+      .guidelines-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
   <div class="widget-container">
-
+    
     <!-- Trama superior decorativa -->
     <div class="top-strip">
       <div class="strip-pattern"></div>
     </div>
 
-    <!-- Header superior -->
+    <!-- Header superior con Logo -->
     <header class="header-bar">
       <div class="header-text">
-        <span class="eyebrow">[DOCUMENTACIÓN TÉCNICA | MODELADO AS IS]</span>
-        <h1 class="main-title">
-          Ficha Técnica de Proceso y <span class="highlight">Matriz SIPOC</span>
-        </h1>
+        <span class="eyebrow">Macroproceso: [Nombre del Macroproceso]</span>
+        <h1 class="main-title">Ficha Técnica: <span class="highlight">[Nombre del Proceso]</span></h1>
       </div>
       <div class="logo-container">
         <div class="logo-text">
@@ -525,288 +530,256 @@
       </div>
     </header>
 
-    <!-- Metadatos de la Ficha (Modelo de Datos) -->
+    <!-- Ficha de Metadatos Documentales -->
     <section class="doc-meta-card">
       <div class="doc-field">
-        <span class="field-label">Organización</span>
-        <span class="field-value">[Nombre de la Organización]</span>
+        <span class="doc-field-label">Clave Documento</span>
+        <span class="doc-field-value">[Clave del Documento]</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Tipo de Formato</span>
-        <span class="field-value">[Tipo de Formato]</span>
+        <span class="doc-field-label">Revisión</span>
+        <div class="badge-rev">REV [No. Rev]</div>
       </div>
       <div class="doc-field">
-        <span class="field-label">Título del Documento</span>
-        <span class="field-value">[Título del Documento]</span>
+        <span class="doc-field-label">Organización</span>
+        <span class="doc-field-value">Grupo Flamingos</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Clave del Documento</span>
-        <span class="field-value">
-          [Clave del Documento]
-          <span class="pill-badge pill-gold">REV [No. Rev]</span>
-        </span>
+        <span class="doc-field-label">Tipo de Formato</span>
+        <span class="doc-field-value">Ficha Técnica de Proceso</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Nombre del Proceso</span>
-        <span class="field-value">[Nombre del Proceso]</span>
+        <span class="doc-field-label">Clave del Proceso</span>
+        <span class="doc-field-value">[Clave del Proceso]</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Clave del Proceso</span>
-        <span class="field-value">[Clave del Proceso]</span>
+        <span class="doc-field-label">Nivel del Proceso</span>
+        <span class="doc-field-value">[Nivel del Proceso]</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Nivel del Proceso</span>
-        <span class="field-value">
-          <span class="pill-badge pill-cyan">[Nivel]</span>
-        </span>
+        <span class="doc-field-label">Responsable</span>
+        <span class="doc-field-value">[Cargo del Responsable]</span>
       </div>
       <div class="doc-field">
-        <span class="field-label">Responsable del Proceso</span>
-        <span class="field-value">[Cargo del Responsable]</span>
+        <span class="doc-field-label">Herramienta Oficial</span>
+        <span class="doc-field-value">App Web Flamingos</span>
       </div>
     </section>
 
-    <!-- Objetivo del Proceso -->
-    <section class="objective-card">
-      <svg class="obj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <circle cx="12" cy="12" r="6"></circle>
-        <circle cx="12" cy="12" r="2"></circle>
-      </svg>
-      <div>
-        <div class="obj-title">Objetivo Estratégico del Proceso</div>
-        <p class="obj-text">[Objetivo del Proceso]</p>
+    <!-- Resumen y Alcance del Proceso -->
+    <section class="process-summary-card">
+      <div class="summary-section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        1. Objetivo del Proceso
+      </div>
+      <p class="summary-text">
+        [Descripción clara y sintética del objetivo del proceso en tiempo presente o infinitivo, estableciendo propósito y resultado esperado.]
+      </p>
+
+      <div class="scope-grid">
+        <div class="scope-item">
+          <div class="scope-item-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Punto de Inicio
+          </div>
+          <div class="scope-item-desc">
+            [Evento o acción disparadora que da inicio formal a las actividades operativas del proceso.]
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-item-title">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            </svg>
+            Punto de Término
+          </div>
+          <div class="scope-item-desc">
+            [Resultado tangible o condición de cierre formal que finaliza el ciclo del proceso.]
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Sección SIPOC -->
-    <div class="section-header">
+    <!-- Matriz SIPOC -->
+    <section class="section-title-wrap">
       <h2 class="section-title">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.2">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        Matriz SIPOC (Supplier, Input, Process, Output, Customer)
+        2. Matriz Operativa SIPOC
       </h2>
-      <span class="pill-badge pill-cyan">FLUJO DE VALOR</span>
-    </div>
+      <span class="section-badge">[N] Actividades Mapeadas</span>
+    </section>
 
-    <div class="sipoc-grid">
-      <!-- S: Proveedores -->
-      <div class="sipoc-column">
-        <div class="sipoc-header">
-          <span class="sipoc-letter">S</span>
-          <span class="sipoc-col-name">Proveedores</span>
-        </div>
-        <div class="sipoc-body">
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Proveedor 1]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Proveedor 2]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Proveedor 3]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- I: Entradas -->
-      <div class="sipoc-column">
-        <div class="sipoc-header">
-          <span class="sipoc-letter">I</span>
-          <span class="sipoc-col-name">Entradas</span>
-        </div>
-        <div class="sipoc-body">
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Entrada 1]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Entrada 2]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Entrada 3]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- P: Proceso (Centro) -->
-      <div class="sipoc-column process-col">
-        <div class="sipoc-header">
-          <span class="sipoc-letter">P</span>
-          <span class="sipoc-col-name">Actividades</span>
-        </div>
-        <div class="sipoc-body">
-          <div class="sipoc-item">
-            <span class="item-bullet">1.</span>
-            <span>[Actividad del Proceso 1]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">2.</span>
-            <span>[Actividad del Proceso 2]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">3.</span>
-            <span>[Actividad del Proceso 3]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- O: Salidas -->
-      <div class="sipoc-column">
-        <div class="sipoc-header">
-          <span class="sipoc-letter">O</span>
-          <span class="sipoc-col-name">Salidas</span>
-        </div>
-        <div class="sipoc-body">
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Salida 1]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Salida 2]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Salida 3]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- C: Clientes -->
-      <div class="sipoc-column">
-        <div class="sipoc-header">
-          <span class="sipoc-letter">C</span>
-          <span class="sipoc-col-name">Clientes</span>
-        </div>
-        <div class="sipoc-body">
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Cliente 1]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Cliente 2]</span>
-          </div>
-          <div class="sipoc-item">
-            <span class="item-bullet">▶</span>
-            <span>[Cliente 3]</span>
-          </div>
-        </div>
+    <div class="sipoc-card">
+      <div class="table-responsive">
+        <table class="sipoc-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Proveedores</th>
+              <th style="width: 18%;">Entradas</th>
+              <th class="col-p" style="width: 28%;">Proceso (Actividad)</th>
+              <th style="width: 18%;">Salidas</th>
+              <th style="width: 18%;">Clientes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[Proveedor 1]</td>
+              <td>[Entrada 1]</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">1</span>
+                  <span>[Verbo en infinitivo + tarea operativa 1]</span>
+                </div>
+              </td>
+              <td>[Salida 1]</td>
+              <td>[Cliente 1]</td>
+            </tr>
+            <tr>
+              <td>[Proveedor 2]</td>
+              <td>[Entrada 2]</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">2</span>
+                  <span>[Verbo en infinitivo + tarea operativa 2]</span>
+                </div>
+              </td>
+              <td>[Salida 2]</td>
+              <td>[Cliente 2]</td>
+            </tr>
+            <tr>
+              <td>[Proveedor 3]</td>
+              <td>[Entrada 3]</td>
+              <td class="cell-p">
+                <div class="step-content">
+                  <span class="step-number">3</span>
+                  <span>[Verbo en infinitivo + tarea operativa 3]</span>
+                </div>
+              </td>
+              <td>[Salida 3]</td>
+              <td>[Cliente 3]</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Sección KPIs -->
-    <div class="section-header">
+    <!-- Indicadores Clave de Desempeño (KPIs) -->
+    <section class="section-title-wrap">
       <h2 class="section-title">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.2">
-          <line x1="18" y1="20" x2="18" y2="10"></line>
-          <line x1="12" y1="20" x2="12" y2="4"></line>
-          <line x1="6" y1="20" x2="6" y2="14"></line>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00A9B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="6"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
         </svg>
-        Indicadores Clave de Desempeño (KPIs)
+        3. Indicadores Clave de Desempeño (KPIs)
       </h2>
-      <span class="pill-badge pill-gold">MÉTRICAS</span>
-    </div>
+      <span class="section-badge">Control de Eficiencia</span>
+    </section>
 
-    <div class="kpi-grid">
-      <!-- Indicador 1 -->
-      <article class="kpi-card">
-        <div class="kpi-header">
-          <div class="kpi-title-wrap">
-            <div class="kpi-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
+    <div class="kpis-grid">
+      <!-- Tarjeta KPI 1 -->
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-header">
             <h3 class="kpi-name">[Nombre del Indicador 1]</h3>
+            <span class="kpi-target-badge">[Meta: ej. 100%]</span>
           </div>
-          <span class="pill-badge pill-cyan">KPI 01</span>
-        </div>
-
-        <div class="kpi-formula-box">
-          <div class="formula-label">Fórmula de Cálculo</div>
-          <code class="formula-code">[Fórmula de Cálculo 1]</code>
-        </div>
-
-        <div class="kpi-meta-grid">
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Unidad de Medida</div>
-            <div class="kpi-meta-value">[Unidad de Medida 1]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Frecuencia</div>
-            <div class="kpi-meta-value">[Frecuencia 1]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Responsable</div>
-            <div class="kpi-meta-value">[Responsable del Cálculo 1]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Origen de Datos</div>
-            <div class="kpi-meta-value">[Origen de los Datos 1]</div>
+          <div class="kpi-formula-box">
+            <div class="kpi-formula-label">Fórmula de Medición</div>
+            <div class="kpi-formula-code">[Fórmula de Cálculo 1]</div>
           </div>
         </div>
-      </article>
+        <div class="kpi-details-grid">
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Frecuencia</span>
+            <span class="kpi-detail-value">[Frecuencia 1]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Responsable</span>
+            <span class="kpi-detail-value">[Responsable 1]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Unidad</span>
+            <span class="kpi-detail-value">[Unidad 1]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Fuente</span>
+            <span class="kpi-detail-value">[Origen de Datos 1]</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Indicador 2 -->
-      <article class="kpi-card">
-        <div class="kpi-header">
-          <div class="kpi-title-wrap">
-            <div class="kpi-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </div>
+      <!-- Tarjeta KPI 2 -->
+      <div class="kpi-card">
+        <div>
+          <div class="kpi-header">
             <h3 class="kpi-name">[Nombre del Indicador 2]</h3>
+            <span class="kpi-target-badge">[Meta: ej. &le; 2%]</span>
           </div>
-          <span class="pill-badge pill-cyan">KPI 02</span>
-        </div>
-
-        <div class="kpi-formula-box">
-          <div class="formula-label">Fórmula de Cálculo</div>
-          <code class="formula-code">[Fórmula de Cálculo 2]</code>
-        </div>
-
-        <div class="kpi-meta-grid">
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Unidad de Medida</div>
-            <div class="kpi-meta-value">[Unidad de Medida 2]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Frecuencia</div>
-            <div class="kpi-meta-value">[Frecuencia 2]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Responsable</div>
-            <div class="kpi-meta-value">[Responsable del Cálculo 2]</div>
-          </div>
-          <div class="kpi-meta-item">
-            <div class="kpi-meta-label">Origen de Datos</div>
-            <div class="kpi-meta-value">[Origen de los Datos 2]</div>
+          <div class="kpi-formula-box">
+            <div class="kpi-formula-label">Fórmula de Medición</div>
+            <div class="kpi-formula-code">[Fórmula de Cálculo 2]</div>
           </div>
         </div>
-      </article>
+        <div class="kpi-details-grid">
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Frecuencia</span>
+            <span class="kpi-detail-value">[Frecuencia 2]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Responsable</span>
+            <span class="kpi-detail-value">[Responsable 2]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Unidad</span>
+            <span class="kpi-detail-value">[Unidad 2]</span>
+          </div>
+          <div class="kpi-detail-item">
+            <span class="kpi-detail-label">Fuente</span>
+            <span class="kpi-detail-value">[Origen de Datos 2]</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Pie de página (Speaker Note / Context Box) -->
-    <footer class="footer-note-box">
-      <span class="footer-tag">[FICHA TÉCNICA AS IS]</span>
-      <span class="footer-text">Todas las actividades registradas en la columna de proceso inician con verbo en infinitivo y mapean roles válidos de la organización.</span>
-    </footer>
-
-    <!-- Línea de cierre dorada -->
-    <div class="bottom-gold-bar"></div>
+    <!-- Caja de Guidelines / Reglas de Negocio -->
+    <div class="guidelines-box">
+      <div class="guidelines-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        Puntos de Control y Reglas de Negocio Validadas (TBC)
+      </div>
+      <ul class="guidelines-list">
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>[Regla 1]:</strong> [Descripción de la restricción operativa o regla de negocio validada].</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>[Regla 2]:</strong> [Descripción de la validación o candado del sistema].</span>
+        </li>
+        <li>
+          <span class="guideline-dot">•</span>
+          <span><strong>[Regla 3]:</strong> [Descripción de la trazabilidad o acuse requerido].</span>
+        </li>
+      </ul>
+    </div>
 
   </div>
-
 </body>
 </html>
