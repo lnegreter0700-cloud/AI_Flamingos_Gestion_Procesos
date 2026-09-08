@@ -116,5 +116,12 @@ La documentación de procesos cuenta con despliegue automático mediante **GitHu
   3. **Codificación URL Completa:** Además de acentos, caracteres como espacios (`%20`), paréntesis (`%28` y `%29`), y dos puntos (`%3A`) deben codificarse según el estándar web para evitar fallos de resolución en servidores Linux.
   4. **Apertura de Diagramas en Pestaña Nueva:** Todo enlace a diagramas BPMN o archivos PDF debe incluir `target="_blank"` y `rel="noopener noreferrer"`.
   5. **Exactitud de Mayúsculas/Minúsculas (Case Sensitivity):** Los nombres de archivos y rutas relativas deben coincidir con absoluta exactitud con los nombres físicos en el repositorio.
+  6. **Previsualización Enriquecida en Redes y WhatsApp (Open Graph & Favicon):**
+     - Tanto el gateway raíz `docs/index.html` como `docs/output/SOP_Inventario_de_Procesos.html` deben incluir obligatoriamente metaetiquetas Open Graph (`og:image`, `og:title`, `og:description`, `og:url`, `og:type`) y Twitter Cards.
+     - **Requisitos Críticos de WhatsApp:**
+       - La imagen DEBE especificarse con **URL absoluta HTTPS** (`https://procesos.desarrollo-flamingos.com.mx/assets/og_flamingos_preview.png`); WhatsApp rechaza URLs relativas.
+       - El formato debe ser **PNG o JPEG** (WhatsApp ignora imágenes en SVG).
+       - El peso del archivo debe ser estrictamente **inferior a 300 KB** (si excede 300 KB, WhatsApp descarta el logo en el preview).
+       - Se debe incluir `<link rel="icon" type="image/png" href="https://procesos.desarrollo-flamingos.com.mx/assets/favicon.png">` como fallback y para favicon de pestañas del navegador.
 
 

@@ -36,6 +36,11 @@ Cualquier entregable HTML de Inventario de Procesos debe operar a la perfección
    - **Normalización Unicode NFC Obligatoria:** En macOS, los nombres de archivos con tildes se leen como NFD (`%CC%81`), lo que rompe los enlaces (404) en GitHub Pages (Linux). Se DEBE normalizar siempre a NFC (`unicodedata.normalize('NFC', archivo)`) antes de codificar (`urllib.parse.quote`), asegurando bytes precompuestos (`%C3%B3`, `%C3%AD`, etc.).
    - Codificación URL estricta de espacios (`%20`), paréntesis (`%28`, `%29`) y dos puntos (`%3A`).
 6. **Enrutamiento desde la Raíz:** `docs/output/SOP_Inventario_de_Procesos.html` es el destino al que apunta el enrutador `docs/index.html`. Los archivos de infraestructura (`index.html`, `CNAME`, `.nojekyll`) deben preservarse intactos.
+7. **Metaetiquetas Open Graph & Favicon (Previsualización WhatsApp):**
+   - Para que WhatsApp, Slack y redes sociales muestren la tarjeta con logotipo, título y descripción:
+     - `og:image`: URL absoluta HTTPS obligatoria (`https://procesos.desarrollo-flamingos.com.mx/assets/og_flamingos_preview.png`), formato PNG/JPEG, <300 KB.
+     - `og:title`, `og:description`, `og:site_name`, `twitter:card`.
+     - `link rel="icon"` hacia `https://procesos.desarrollo-flamingos.com.mx/assets/favicon.png`.
 
 
 ---
