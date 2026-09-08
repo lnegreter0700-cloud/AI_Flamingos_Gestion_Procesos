@@ -22,15 +22,21 @@ Esta habilidad norma la construcción, edición y aseguramiento gráfico del **I
 
 ---
 
-## 2. Requisitos Mandatorios de Compatibilidad con Google Sites
+## 2. Requisitos Mandatorios de Compatibilidad Dual (Google Sites & GitHub Pages)
 
-Cualquier entregable HTML de Inventario de Procesos debe poder pegarse directamente en el modal **"Insertar código / Embed code"** de Google Sites:
+Cualquier entregable HTML de Inventario de Procesos debe operar a la perfección tanto como landing page del portal web corporativo en **GitHub Pages** (`https://procesos.desarrollo-flamingos.com.mx/`) como incrustado en el modal **"Insertar código / Embed code"** de **Google Sites**:
 
 1. **100% Autocontenido:** Cero dependencias locales (`sheet.css` proscrito). Todos los estilos en `<style>`.
 2. **Tipografía Web:** Plus Jakarta Sans vía Google Fonts CDN.
 3. **Iconografía SVG Inline:** Todos los pictogramas vectorizados en código SVG puro.
 4. **Buscador en Tiempo Real:** JavaScript ligero para filtrar subprocesos al escribir en la barra de búsqueda.
-5. **Enlaces Seguros:** Cualquier enlace a documentos externos debe usar `target="_blank"` y `rel="noopener noreferrer"`.
+5. **Rutas Relativas Web Universales y Normalización Unicode NFC:**
+   - Enlaces a Fichas y Matrices: rutas relativas directas dentro de `docs/output/` (`href="SOP_[Nombre]_[Tipo].html"`).
+   - Enlaces a Diagramas en `docs/assets/`: rutas relativas universales (`href="../assets/[Archivo_Codificado].pdf"`), con `target="_blank"` y `rel="noopener noreferrer"`.
+   - **Normalización Unicode NFC Obligatoria:** En macOS, los nombres de archivos con tildes se leen como NFD (`%CC%81`), lo que rompe los enlaces (404) en GitHub Pages (Linux). Se DEBE normalizar siempre a NFC (`unicodedata.normalize('NFC', archivo)`) antes de codificar (`urllib.parse.quote`), asegurando bytes precompuestos (`%C3%B3`, `%C3%AD`, etc.).
+   - Codificación URL estricta de espacios (`%20`), paréntesis (`%28`, `%29`) y dos puntos (`%3A`).
+6. **Enrutamiento desde la Raíz:** `docs/output/SOP_Inventario_de_Procesos.html` es el destino al que apunta el enrutador `docs/index.html`. Los archivos de infraestructura (`index.html`, `CNAME`, `.nojekyll`) deben preservarse intactos.
+
 
 ---
 

@@ -19,7 +19,7 @@ Este archivo define la topología de sub-agentes autónomos asignados para el pr
 
 ## 2. AGENTE: `Process_Table_Formatter`
 - **Propósito:** Estructurar el conocimiento extraído bajo las plantillas maestras e inyectar los datos en los entregables finales inseparables (`.md` y `.html`) para Fichas de Proceso y Matrices de Riesgos.
-- **Directorio de Reglas:** `docs/specs/templates/` (`Plantilla_Ficha_de_Proceso/`, `Plantilla_Matriz_de_Riesgos/`), garantizando compatibilidad con los estilos de Google Docs definidos en `scripts/` y el Look & Feel de Google Sites.
+- **Directorio de Reglas:** `docs/specs/templates/` (`Plantilla_Ficha_de_Proceso/`, `Plantilla_Matriz_de_Riesgos/`), garantizando compatibilidad con los estilos de Google Docs definidos en `scripts/`, el Look & Feel de Google Sites y el portal web en GitHub Pages.
 - **Skills Requeridas:** `maquetar-ficha-proceso`, `maquetar-matriz-riesgos`
 - **Directorio de Salida:** `docs/output/`
 - **Flujo de Trabajo:**
@@ -27,26 +27,28 @@ Este archivo define la topología de sub-agentes autónomos asignados para el pr
   2. Validar que cada actividad inicie obligatoriamente con verbos en infinitivo (*Verificar*, *Calcular*, *Aprobar*, etc.) y que los responsables correspondan a roles organizacionales válidos.
   3. Generar la Ficha Técnica de Proceso en formato dual:
      - `SOP_[Nombre_Proceso]_Ficha_de_Proceso.md` (Modelo de datos compatible con Google Docs)
-     - `SOP_[Nombre_Proceso]_Ficha_de_Proceso.html` (Vista ejecutiva para Google Sites vía `maquetar-ficha-proceso`)
+     - `SOP_[Nombre_Proceso]_Ficha_de_Proceso.html` (Vista ejecutiva para Google Sites y GitHub Pages vía `maquetar-ficha-proceso`)
   4. Generar la Matriz de Riesgos Operativos (AS IS) en formato dual:
      - `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.md` (Modelo de datos)
      - `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.html` (Vista ejecutiva con badges vía `maquetar-matriz-riesgos`)
-  5. Guardar ambos pares directamente en `docs/output/`.
+  5. Guardar ambos pares directamente en `docs/output/`, asegurando rutas relativas web estáticas hacia `../assets/` compatibles con GitHub Pages.
 
 ---
 
 ## 3. AGENTE: `Inventory_Controller`
-- **Propósito:** Compilar y mantener el Inventario General de Procesos (Nivel 0 y 1) integrando todos los procesos existentes en `docs/output/`, o digitalizar directamente mapas e inventarios provenientes de `docs/assets/`.
+- **Propósito:** Compilar y mantener el Inventario General de Procesos (Nivel 0 y 1) integrando todos los procesos existentes en `docs/output/`, o digitalizar directamente mapas e inventarios provenientes de `docs/assets/`, sirviendo como catálogo principal del portal GitHub Pages (`https://procesos.desarrollo-flamingos.com.mx/`).
 - **Directorio de Entrada:** `docs/output/` y/o `docs/assets/`
 - **Directorio de Reglas:** `docs/specs/templates/Plantilla_Inventario_de_Procesos/`
 - **Skills Requeridas:** `maquetar-inventario-procesos`
 - **Directorio de Salida:** `docs/output/`
 - **Flujo de Trabajo:**
-  1. Recorrer o extraer la matriz consolidada de procesos (Macroprocesos, Procesos Padre, Subprocesos, IDs, Responsables y Enlaces) presentes en `docs/output/`.
+  1. Recorrer o extraer la matriz consolidada de procesos (Macroprocesos, Procesos Padre, Subprocesos, IDs, Responsables, Enlaces a Fichas, Matrices y Diagramas en `docs/assets/`) presentes en `docs/output/`.
   2. Generar obligatoriamente la entrega en formato dual:
-     - `SOP_Inventario_de_Procesos.md` (Modelo consolidado)
-     - `SOP_Inventario_de_Procesos.html` (Vista interactiva con buscador en vivo para Google Sites vía `maquetar-inventario-procesos`)
-  3. Guardar el entregable consolidado en `docs/output/`.
+     - `SOP_Inventario_de_Procesos.md` (Modelo consolidado con columna de Diagrama BPMN en rutas relativas limpias)
+     - `SOP_Inventario_de_Procesos.html` (Vista interactiva con buscador en vivo, trío de enlaces `Ficha`/`Riesgos`/`Diagrama`, compatible con Google Sites y enrutada por `docs/index.html` en GitHub Pages vía `maquetar-inventario-procesos`)
+  3. **Validación de Enlaces y Normalización Unicode NFC:** Garantizar que todo enlace hacia `docs/assets/` esté normalizado estrictamente en Unicode **NFC** (`unicodedata.normalize('NFC', path)`) y codificado para URL (`urllib.parse.quote`), evitando errores 404 causados por la descomposición NFD de macOS al servirse en Linux (GitHub Pages).
+  4. Guardar el entregable consolidado en `docs/output/`.
+  5. **Preservación de Infraestructura GitHub Pages:** Proteger y nunca sobrescribir los archivos raíz de publicación en `docs/` (`docs/index.html`, `docs/CNAME`, `docs/.nojekyll`).
 
 ---
 

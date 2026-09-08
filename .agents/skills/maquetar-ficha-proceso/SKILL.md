@@ -22,14 +22,15 @@ Esta habilidad norma la construcción, edición y aseguramiento gráfico de la *
 
 ---
 
-## 2. Requisitos Mandatorios de Compatibilidad con Google Sites
+## 2. Requisitos Mandatorios de Compatibilidad Dual (Google Sites & GitHub Pages)
 
-Cualquier entregable HTML de Ficha de Proceso debe poder pegarse directamente en el modal **"Insertar código / Embed code"** de Google Sites:
+Cualquier entregable HTML de Ficha de Proceso debe operar de forma óptima tanto como página del portal web corporativo en **GitHub Pages** (`https://procesos.desarrollo-flamingos.com.mx/`) como incrustado en el modal **"Insertar código / Embed code"** de **Google Sites**:
 
 1. **100% Autocontenido:** Todo el CSS en `<style>` en el `<head>`. Prohibido enlazar hojas externas locales (`sheet.css` proscrito).
 2. **Tipografía Web:** Importar vía CDN: `<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">`.
 3. **Iconografía SVG Inline:** Todos los iconos deben estar vectorizados directamente en el código (`<svg viewBox="...">`), nunca fuentes tipográficas externas como FontAwesome.
 4. **Layout Fluido:** `box-sizing: border-box`, `max-width: 1240px; margin: 0 auto;`, `overflow-x: hidden`.
+5. **Compatibilidad con Servidores Web Estáticos:** Enlaces relativos sin dependencias del sistema de archivos local y nombres de archivo con coincidencia exacta de mayúsculas/minúsculas.
 
 ---
 

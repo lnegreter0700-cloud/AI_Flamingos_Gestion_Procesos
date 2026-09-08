@@ -25,14 +25,15 @@ Esta habilidad norma la construcción, edición y aseguramiento gráfico de la *
 
 ---
 
-## 2. Requisitos Mandatorios de Compatibilidad con Google Sites
+## 2. Requisitos Mandatorios de Compatibilidad Dual (Google Sites & GitHub Pages)
 
-Cualquier entregable HTML de Matriz de Riesgos debe poder pegarse directamente en el modal **"Insertar código / Embed code"** de Google Sites:
+Cualquier entregable HTML de Matriz de Riesgos debe operar de forma óptima tanto como página del portal web corporativo en **GitHub Pages** (`https://procesos.desarrollo-flamingos.com.mx/`) como incrustado en el modal **"Insertar código / Embed code"** de **Google Sites**:
 
 1. **100% Autocontenido:** Cero dependencias locales (`sheet.css` proscrito). Todos los estilos encapsulados en `<style>`.
 2. **Tipografía Web:** Plus Jakarta Sans vía Google Fonts CDN.
 3. **Iconografía SVG Inline:** Todos los pictogramas (alerta, lupa, flechas, logo) vectorizados en código SVG puro.
 4. **Filtros y Búsqueda en Vivo:** JavaScript ligero vanilla para búsqueda en tiempo real por texto y filtrado por categoría de control sin recargar la página.
+5. **Compatibilidad con Servidores Web Estáticos:** Código autocontenido, sin rutas dependientes de localhost y con nombres de archivo rigurosamente exactos.
 
 ---
 
@@ -42,7 +43,7 @@ Cualquier entregable HTML de Matriz de Riesgos debe poder pegarse directamente e
 * **Trama Superior Decorativa:** Contenedor `.top-strip` con trama diagonal gris de 45°.
 * **Eyebrow:** `[SISTEMA DE CONTROL INTERNO | AS IS]` en dorado (`#E5A823`).
 * **Título Bimodal:** `Matriz de Riesgos y ` en Azul Marino (`#16255C`) + `<span class="highlight">Controles Operativos</span>` en Cyan (`#00A9B5`).
-* **Logotipo PapuOol (Top-Right):** Isotipo geodésico vectorizado + texto corporativo.
+* **Logotipo Institucional (Top-Right):** Texto tipográfico dual `DESARROLLO` (Azul Marino) / `FLAMINGOS` (Cyan).
 
 ### B. Cinta de Control Documental (FR-MC-02)
 Tarjeta modular superior con:

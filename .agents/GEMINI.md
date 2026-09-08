@@ -1,26 +1,32 @@
 # DIRECTRICES GENERALES DE ARQUITECTURA Y PROCESOS (FLAMINGOS)
 
 ## 1. Misión del Proyecto
-Estandarizar, digitalizar y formalizar diagramas de flujo, diagramas UML y modelos BPMN 2.0 en documentación de procesos empresariales de alta calidad bajo una arquitectura dual Modelo-Vista (MVC):
+Estandarizar, digitalizar y formalizar diagramas de flujo, diagramas UML y modelos BPMN 2.0 en documentación de procesos empresariales de alta calidad bajo una arquitectura dual Modelo-Vista (MVC) y publicación multicanal:
 - **Modelo de Datos (.md):** Markdown estructurado, limpio y compatible al 100% con exportación y estilización en Google Docs mediante scripts en `scripts/`.
-- **Vista Gráfica Ejecutiva (.html):** Widgets web autocontenidos, responsivos y optimizados para visualización e integración en Google Sites mediante embeds, siguiendo a cabalidad el sistema de diseño corporativo "PAPUOOL CORPORATE AGILE".
+- **Vista Gráfica Ejecutiva (.html):** Widgets web autocontenidos, responsivos y optimizados para:
+  1. **Portal Web en GitHub Pages:** Alojamiento y navegación web centralizada bajo el dominio corporativo personalizado `https://procesos.desarrollo-flamingos.com.mx/`.
+  2. **Integración en Google Sites:** Visualización e incrustación directa mediante widgets embed, siguiendo a cabalidad el sistema de diseño corporativo "PAPUOOL CORPORATE AGILE".
 
 ---
 
-## 2. Estructura de Directorios Estándar
+## 2. Estructura de Directorios Estándar y Publicación Web (GitHub Pages)
 - `.agents/`: Reglas del sistema, directrices generales (`GEMINI.md`), coreografía de agentes (`AGENTS.md`) y habilidades operativas (`skills/`).
-- `docs/assets/`: Archivos visuales fuente de entrada (diagramas BPMN, flujogramas PNG/JPG, diagramas PDF, mapas de procesos o matrices visuales).
-- `docs/specs/templates/`: **Plantillas base maestras, normalizadas y canónicas por componente** (`Plantilla_Ficha_de_Proceso/`, `Plantilla_Inventario_de_Procesos/`, `Plantilla_Matriz_de_Riesgos/`), conteniendo cada una su respectivo `.md` (modelo) y `.html` (vista).
-  - **MANDATO DE PLANTILLA ÚNICA Y HOMOGÉNEA:** Toda Ficha de Proceso y Matriz de Riesgo generada o editada DEBE basarse estricta y obligatoriamente en estas plantillas maestras. Queda estrictamente prohibido crear diseños alternativos, esquemas de CSS divergentes (como layouts legacy con `:root` o contenedores `.container` no estándar), o tablas con estructuras de columnas distintas a las oficiales.
-- `docs/output/`: Directorio central y único de entregables finales (Fichas de Proceso, Matrices de Riesgo e Inventario Consolidado).
-  - **REGLA DE DOBLE ENTREGABLE OBLIGATORIA (.html + .md):** Toda salida generada o consolidada por el sistema (sea Ficha de Proceso, Matriz de Riesgos o Inventario de Procesos) **DEBE entregarse siempre y sin excepción en ambos formatos dentro de esta carpeta**:
-    1. **Archivo `.md`:** Modelo de datos estructurado para lectura, versionado y formateo en Google Docs según la plantilla canónica (`.md`).
-    2. **Archivo `.html`:** Vista ejecutiva autocontenida para embeber en Google Sites según la plantilla canónica (`.html`).
-  - Entregables generados en esta carpeta:
-    - `SOP_[Nombre_Proceso]_Ficha_de_Proceso.md` y `SOP_[Nombre_Proceso]_Ficha_de_Proceso.html`
-    - `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.md` y `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.html`
-    - `SOP_Inventario_de_Procesos.md` y `SOP_Inventario_de_Procesos.html`
-    - Paquetes de exportación consolidados y documentación ejecutiva final.
+- `docs/`: **Directorio Raíz de Publicación Web para GitHub Pages** (Rama: `main`, Carpeta: `/docs`):
+  - `docs/index.html`: **Gateway / Enrutador Principal de GitHub Pages.** Redirige de inmediato el tráfico de la raíz (`/`) hacia `output/SOP_Inventario_de_Procesos.html`. **MANDATO: Queda terminantemente prohibido eliminar, renombrar o sobrescribir este archivo.**
+  - `docs/CNAME`: Archivo de configuración de dominio personalizado para GitHub Pages (`procesos.desarrollo-flamingos.com.mx`). **MANDATO: Preservar intacto.**
+  - `docs/.nojekyll`: Archivo de bypass para que GitHub Pages sirva archivos estáticos directamente sin procesamiento de Jekyll. **MANDATO: Preservar intacto.**
+  - `docs/assets/`: Archivos visuales fuente de entrada y diagramas BPMN/PDF descargables vinculados desde el inventario.
+  - `docs/specs/templates/`: **Plantillas base maestras, normalizadas y canónicas por componente** (`Plantilla_Ficha_de_Proceso/`, `Plantilla_Inventario_de_Procesos/`, `Plantilla_Matriz_de_Riesgos/`), conteniendo cada una su respectivo `.md` (modelo) y `.html` (vista).
+    - **MANDATO DE PLANTILLA ÚNICA Y HOMOGÉNEA:** Toda Ficha de Proceso y Matriz de Riesgo generada o editada DEBE basarse estricta y obligatoriamente en estas plantillas maestras. Queda estrictamente prohibido crear diseños alternativos, esquemas de CSS divergentes (como layouts legacy con `:root` o contenedores `.container` no estándar), o tablas con estructuras de columnas distintas a las oficiales.
+  - `docs/output/`: Directorio central y único de entregables finales (Fichas de Proceso, Matrices de Riesgo e Inventario Consolidado).
+    - **REGLA DE DOBLE ENTREGABLE OBLIGATORIA (.html + .md):** Toda salida generada o consolidada por el sistema (sea Ficha de Proceso, Matriz de Riesgos o Inventario de Procesos) **DEBE entregarse siempre y sin excepción en ambos formatos dentro de esta carpeta**:
+      1. **Archivo `.md`:** Modelo de datos estructurado para lectura, versionado y formateo en Google Docs según la plantilla canónica (`.md`).
+      2. **Archivo `.html`:** Vista ejecutiva autocontenida para embeber en Google Sites y desplegar en GitHub Pages según la plantilla canónica (`.html`).
+    - Entregables generados en esta carpeta:
+      - `SOP_[Nombre_Proceso]_Ficha_de_Proceso.md` y `SOP_[Nombre_Proceso]_Ficha_de_Proceso.html`
+      - `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.md` y `SOP_[Nombre_Proceso]_Matriz_de_Riesgos.html`
+      - `SOP_Inventario_de_Procesos.md` y `SOP_Inventario_de_Procesos.html`
+      - Paquetes de exportación consolidados y documentación ejecutiva final.
 - `scripts/`: Scripts de Google Apps Script (`Ficha_de_Proceso_Style.js`, `Inventario_de_Procesos_Style.js`, `Matriz_de_Riesgos_Style.js`) para formatear documentos en Google Docs con la misma paleta y lineamientos.
 
 ---
@@ -93,3 +99,22 @@ Todas las vistas `.html` deben ser 100% homogéneas y compatibles para embed en 
   - `maquetar-ficha-proceso`: Para la generación de la vista de Ficha de Proceso.
   - `maquetar-matriz-riesgos`: Para la generación de la vista de Matriz de Riesgos.
   - `maquetar-inventario-procesos`: Para la generación de la vista de Inventario de Procesos.
+
+---
+
+## 6. Arquitectura de Despliegue y Publicación en GitHub Pages
+La documentación de procesos cuenta con despliegue automático mediante **GitHub Pages** sirviendo estáticamente la carpeta `/docs` de la rama `main`:
+- **Dominio y URL Oficial:** `https://procesos.desarrollo-flamingos.com.mx/` (configurado en `docs/CNAME`).
+- **Enrutamiento y Landing Page:**
+  - El visitante que accede a la raíz (`https://procesos.desarrollo-flamingos.com.mx/`) es recibido por `docs/index.html`, el cual ejecuta una redirección inmediata (`<meta http-equiv="refresh" content="0; url=output/SOP_Inventario_de_Procesos.html">`) hacia el Catálogo Consolidado de Procesos.
+  - **Archivos de Infraestructura Críticos:** `docs/.nojekyll`, `docs/CNAME` y `docs/index.html` son componentes permanentes del despliegue. Ningún agente, script o refactorización debe borrarlos, moverlos o alterarlos indebidamente.
+- **Lineamientos Mandatorios para Prevención de Enlaces Rotos en GitHub Pages:**
+  1. **Rutas Relativas Universales:** Todos los enlaces entre páginas HTML en `docs/output/` y diagramas en `docs/assets/` deben utilizar rutas relativas estáticas (`../assets/...`). Queda estrictamente prohibido usar rutas absolutas locales tipo `file:///` o rutas del sistema operativo (`/Users/...`) tanto en archivos `.html` como en `.md`.
+  2. **Normalización Unicode NFC Obligatoria (Precomposed):** 
+     - *Causa Raíz de Enlaces Rotos 404:* macOS (sistema APFS) descompone los caracteres acentuados en **NFD** (`o` + `\u0301`, codificado en URL como `%CC%81`), mientras que el árbol de Git y los servidores Linux de GitHub Pages almacenan los nombres en **NFC** (`\u00f3`, codificado en URL como `%C3%B3`). Dado que Linux es estrictamente sensible a la secuencia binaria de bytes, solicitar una URL en NFD genera un error **404 Not Found**.
+     - *Mandato:* Todo agente, script o generador DEBE normalizar los nombres a **NFC** (`unicodedata.normalize('NFC', nombre)`) antes de codificar la URL (`urllib.parse.quote`).
+  3. **Codificación URL Completa:** Además de acentos, caracteres como espacios (`%20`), paréntesis (`%28` y `%29`), y dos puntos (`%3A`) deben codificarse según el estándar web para evitar fallos de resolución en servidores Linux.
+  4. **Apertura de Diagramas en Pestaña Nueva:** Todo enlace a diagramas BPMN o archivos PDF debe incluir `target="_blank"` y `rel="noopener noreferrer"`.
+  5. **Exactitud de Mayúsculas/Minúsculas (Case Sensitivity):** Los nombres de archivos y rutas relativas deben coincidir con absoluta exactitud con los nombres físicos en el repositorio.
+
+
