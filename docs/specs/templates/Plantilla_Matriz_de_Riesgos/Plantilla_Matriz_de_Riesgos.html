@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Plantilla Matriz de Riesgos - PapuOol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #FFFFFF;
+      color: #334155;
+      padding: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    .widget-container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    /* Trama superior decorativa */
+    .top-strip {
+      width: 100%;
+      height: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .strip-pattern {
+      width: 180px;
+      max-width: 60%;
+      height: 6px;
+      background: repeating-linear-gradient(
+        45deg,
+        #CBD5E1,
+        #CBD5E1 1.5px,
+        transparent 1.5px,
+        transparent 6px
+      );
+      opacity: 0.7;
+    }
+
+    /* Header superior */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header-text {
+      flex: 1 1 280px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #E5A823;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #16255C;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      word-break: break-word;
+    }
+
+    .main-title .highlight {
+      color: #00A9B5;
+    }
+
+    /* Logo institucional PapuOol */
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 16px;
+      color: #16255C;
+      letter-spacing: 0.8px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      color: #00A9B5;
+      font-size: 7.5px;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+
+    /* Ficha de Control Documental */
+    .control-doc-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .doc-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #64748B;
+    }
+
+    .field-value {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #16255C;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .field-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background-color: #E2E8F0;
+      color: #16255C;
+    }
+
+    /* Caja de Alerta y Enfoque de Riesgo */
+    .warning-box {
+      background-color: #FFF0F1;
+      border-left: 4px solid #E54747;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .warning-icon {
+      width: 22px;
+      height: 22px;
+      color: #E54747;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .warning-content {
+      flex: 1;
+    }
+
+    .warning-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #E54747;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .warning-text {
+      font-size: 11.5px;
+      color: #64748B;
+      line-height: 1.45;
+    }
+
+    /* Barra de Herramientas y Filtros */
+    .toolbar-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 10px;
+      padding: 8px 12px;
+      gap: 8px;
+      flex: 1 1 240px;
+      max-width: 400px;
+    }
+
+    .search-box:focus-within {
+      border-color: #00A9B5;
+      box-shadow: 0 0 0 2px rgba(0, 169, 181, 0.15);
+    }
+
+    .search-icon {
+      color: #94A3B8;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: inherit;
+      font-size: 12px;
+      color: #16255C;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #16255C;
+      color: #FFFFFF;
+      border-color: #16255C;
+    }
+
+    /* Tabla de Matriz de Riesgos */
+    .table-container {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      overflow-x: auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      margin-bottom: 24px;
+    }
+
+    .risk-table {
+      width: 100%;
+      min-width: 800px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .risk-table th {
+      background-color: #16255C;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 12px 14px;
+      text-align: left;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .risk-table th:last-child {
+      border-right: none;
+    }
+
+    .risk-table td {
+      padding: 14px;
+      border-bottom: 1px solid #F1F5F9;
+      vertical-align: top;
+      line-height: 1.45;
+      color: #334155;
+    }
+
+    .risk-table tr:nth-child(even) td {
+      background-color: #F8FAFC;
+    }
+
+    .risk-table tr:hover td {
+      background-color: #F0FDFA;
+    }
+
+    .act-title {
+      font-weight: 700;
+      color: #16255C;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .act-icon {
+      color: #00A9B5;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Badges de Riesgo y Control */
+    .badge-pill {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-preventivo {
+      background-color: #E6FBFB;
+      color: #00A9B5;
+      border: 1px solid rgba(0, 169, 181, 0.3);
+    }
+
+    .badge-detectivo {
+      background-color: #FEF7E6;
+      color: #D99E1A;
+      border: 1px solid rgba(229, 168, 35, 0.3);
+    }
+
+    .badge-correctivo {
+      background-color: #FFF0F1;
+      color: #E54747;
+      border: 1px solid rgba(229, 71, 71, 0.3);
+    }
+
+    .risk-level-high {
+      background: #FEE2E2;
+      color: #991B1B;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+    }
+
+    /* Footer Note Box */
+    .footer-note-box {
+      background-color: #F8FAFC;
+      border-left: 4px solid #16255C;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      color: #475569;
+    }
+
+    .footer-tag {
+      font-weight: 800;
+      color: #16255C;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .bottom-gold-bar {
+      width: 100%;
+      height: 3px;
+      background-color: #E5A823;
+      margin-top: 14px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 8px;
+      }
+      .main-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="widget-container">
+
+    <!-- Trama superior decorativa -->
+    <div class="top-strip">
+      <div class="strip-pattern"></div>
+    </div>
+
+    <!-- Header superior -->
+    <header class="header-bar">
+      <div class="header-text">
+        <span class="eyebrow">[SISTEMA DE CONTROL INTERNO | AS IS]</span>
+        <h1 class="main-title">
+          Matriz de Riesgos y <span class="highlight">Controles Operativos</span>
+        </h1>
+      </div>
+      <div class="logo-container" aria-label="Logo PapuOol Consultoría">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="45" stroke="#16255C" stroke-width="2" stroke-dasharray="3 3" opacity="0.4"/>
+          <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" stroke="#16255C" stroke-width="3" fill="none"/>
+          <line x1="50" y1="15" x2="50" y2="85" stroke="#00A9B5" stroke-width="2.5"/>
+          <line x1="20" y1="32" x2="80" y2="68" stroke="#00A9B5" stroke-width="2.5"/>
+          <line x1="20" y1="68" x2="80" y2="32" stroke="#00A9B5" stroke-width="2.5"/>
+          <circle cx="50" cy="15" r="4.5" fill="#00A9B5"/>
+          <circle cx="80" cy="32" r="4.5" fill="#00A9B5"/>
+          <circle cx="80" cy="68" r="4.5" fill="#00A9B5"/>
+          <circle cx="50" cy="85" r="4.5" fill="#00A9B5"/>
+          <circle cx="20" cy="68" r="4.5" fill="#00A9B5"/>
+          <circle cx="20" cy="32" r="4.5" fill="#00A9B5"/>
+          <circle cx="50" cy="50" r="7" fill="#E5A823"/>
+          <circle cx="50" cy="50" r="10" stroke="#E5A823" stroke-width="1.5" opacity="0.6"/>
+        </svg>
+        <div class="logo-text">
+          PAPUOOL
+          <span>CONSULTORÍA</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ficha de Control Documental -->
+    <section class="control-doc-card">
+      <div class="doc-field">
+        <span class="field-label">Organización</span>
+        <span class="field-value">[Nombre de la Organización]</span>
+      </div>
+      <div class="doc-field">
+        <span class="field-label">Formato & Revisión</span>
+        <span class="field-value">
+          FR-MC-02
+          <span class="field-badge">REV: 00</span>
+        </span>
+      </div>
+      <div class="doc-field">
+        <span class="field-label">Clave del Proceso</span>
+        <span class="field-value">[Clave del proceso]</span>
+      </div>
+      <div class="doc-field">
+        <span class="field-label">Elaboró</span>
+        <span class="field-value">[Nombre de quien elabora]</span>
+      </div>
+      <div class="doc-field">
+        <span class="field-label">Autorizó AS IS</span>
+        <span class="field-value">[Nombre de quien autoriza]</span>
+      </div>
+      <div class="doc-field">
+        <span class="field-label">Fecha de Emisión</span>
+        <span class="field-value">[Fecha de elaboración]</span>
+      </div>
+    </section>
+
+    <!-- Caja de Advertencia Operativa -->
+    <section class="warning-box">
+      <svg class="warning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+      <div class="warning-content">
+        <div class="warning-title">Lineamiento de Mitigación y Auditoría AS IS</div>
+        <p class="warning-text">
+          Cada actividad evaluada debe iniciar obligatoriamente con un verbo en infinitivo y mapear de forma inequívoca el peligro intrínseco, el riesgo financiero u operativo resultante, y la tipología del control de mitigación aplicado.
+        </p>
+      </div>
+    </section>
+
+    <!-- Barra de Búsqueda y Filtros -->
+    <div class="toolbar-bar">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="riskSearch" class="search-input" placeholder="Buscar actividad, peligro o control..." onkeyup="filterRisks()">
+      </div>
+
+      <div class="filter-pills">
+        <button class="filter-btn active" onclick="filterByType('all', this)">Todos</button>
+        <button class="filter-btn" onclick="filterByType('preventivo', this)">Preventivos</button>
+        <button class="filter-btn" onclick="filterByType('detectivo', this)">Detectivos</button>
+        <button class="filter-btn" onclick="filterByType('correctivo', this)">Correctivos</button>
+      </div>
+    </div>
+
+    <!-- Tabla de Evaluación de Riesgos -->
+    <div class="table-container">
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">Actividad Operativa</th>
+            <th style="width: 20%;">Peligro Detectado</th>
+            <th style="width: 22%;">Riesgo / Impacto</th>
+            <th style="width: 22%;">Control Mitigante</th>
+            <th style="width: 14%;">Tipo de Control</th>
+          </tr>
+        </thead>
+        <tbody id="riskTableBody">
+          <tr class="risk-row" data-type="preventivo">
+            <td>
+              <div class="act-title">
+                <span class="act-icon">▶</span>
+                [Describa la actividad 1]
+              </div>
+            </td>
+            <td>[Describa el peligro 1]</td>
+            <td>
+              <div>[Describa el riesgo 1]</div>
+              <span class="risk-level-high">Crítico</span>
+            </td>
+            <td>[Describa el control 1]</td>
+            <td>
+              <span class="badge-pill badge-preventivo">Preventivo</span>
+            </td>
+          </tr>
+          <tr class="risk-row" data-type="detectivo">
+            <td>
+              <div class="act-title">
+                <span class="act-icon">▶</span>
+                [Describa la actividad 2]
+              </div>
+            </td>
+            <td>[Describa el peligro 2]</td>
+            <td>[Describa el riesgo 2]</td>
+            <td>[Describa el control 2]</td>
+            <td>
+              <span class="badge-pill badge-detectivo">Detectivo</span>
+            </td>
+          </tr>
+          <tr class="risk-row" data-type="correctivo">
+            <td>
+              <div class="act-title">
+                <span class="act-icon">▶</span>
+                [Describa la actividad 3]
+              </div>
+            </td>
+            <td>[Describa el peligro 3]</td>
+            <td>[Describa el riesgo 3]</td>
+            <td>[Describa el control 3]</td>
+            <td>
+              <span class="badge-pill badge-correctivo">Correctivo</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pie de página (Speaker Note / Context Box) -->
+    <footer class="footer-note-box">
+      <span class="footer-tag">[MATRIZ AS IS]</span>
+      <span class="footer-text">Registrada y autorizada para el proceso <code>[Clave del proceso]</code> en cumplimiento del protocolo de segregación de roles y control operacional.</span>
+    </footer>
+
+    <!-- Línea de cierre dorada -->
+    <div class="bottom-gold-bar"></div>
+
+  </div>
+
+  <script>
+    let activeFilter = 'all';
+
+    function filterByType(type, btn) {
+      activeFilter = type;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+
+    function filterRisks() {
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('riskSearch').value.toLowerCase();
+      const rows = document.querySelectorAll('.risk-row');
+
+      rows.forEach(row => {
+        const matchesType = (activeFilter === 'all') || (row.getAttribute('data-type') === activeFilter);
+        const matchesQuery = row.innerText.toLowerCase().includes(query);
+        row.style.display = (matchesType && matchesQuery) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
