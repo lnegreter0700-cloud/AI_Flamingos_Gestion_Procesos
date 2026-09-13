@@ -65,9 +65,9 @@
 
 ---
 
-## Reglas o Guidelines
+## Directrices de Gobernanza y Gestión por Procesos
 
-1. **Estructura Consolidada:** El Inventario de Procesos recopila de manera estructurada y exhaustiva los 8 procesos formalizados en `docs/output/`.
-2. **Jerarquía Clara:** Se define el Macroproceso general en la parte superior y se estructura la tabla en dos niveles: `Proceso` (para agrupar las categorías principales de negocio) y `Subproceso` (para listar los flujos específicos).
-3. **Regla de Doble Salida:** Todos los procesos vinculados en este inventario cuentan de forma obligatoria con su par inseparable `.md` y `.html` en `docs/output/`.
-4. **Compatibilidad con Google Apps Script:** Las cabeceras `Proceso` y `Subproceso` son identificadas por `Inventario_de_Procesos_Style.js` para aplicar el Look & Feel corporativo en Google Docs.
+1. **Radiografía Operativa y Dinamismo:** Este catálogo representa una radiografía objetiva de las actividades que hoy en día se realizan en la organización; no obstante, los procesos no son actividades fijas ni estáticas, sino estructuras vivas y adaptables que pueden y deben evolucionar continuamente para impulsar la eficiencia y responder a las necesidades del negocio.
+2. **Alineación Estratégica y Certidumbre:** La estandarización de estos procedimientos asegura la coordinación transversal entre Tesorería, Jurídico y Cobranza, garantizando consistencia en la ejecución diaria, trazabilidad documental y certidumbre legal y patrimonial en cada operación.
+3. **Control Preventivo y Excelencia Operativa:** Cada flujo formalizado integra puntos de control crítico orientados a mitigar riesgos operativos y financieros, fomentando una cultura colaborativa donde la detección oportuna de desviaciones y la optimización continua elevan la calidad del servicio.
+
