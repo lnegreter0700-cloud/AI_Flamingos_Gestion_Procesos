@@ -91,8 +91,8 @@
 
     <header class="header-bar">
       <div class="header-text">
-        <span class="eyebrow">Gestión de Riesgos Operativos</span>
-        <h1 class="main-title">Matriz AS IS: <span class="highlight">Cancelación Manual de Lotes</span></h1>
+        <span class="eyebrow">Macroproceso: Gestión de Finanzas y Operaciones</span>
+        <h1 class="main-title">Matriz de Riesgos: <span class="highlight">Cancelación Manual de Lotes</span></h1>
       </div>
       <div class="logo-container">
         <div class="logo-text">
@@ -124,13 +124,13 @@
     </div>
 
     <div class="toolbar-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar actividad, peligro o control..." onkeyup="buscarEnTabla()">
       <div class="filter-group">
         <button class="filter-btn active" onclick="filtrarTabla('todos')">Todos (5)</button>
         <button class="filter-btn" onclick="filtrarTabla('preventivo')">Preventivos</button>
         <button class="filter-btn" onclick="filtrarTabla('detectivo')">Detectivos</button>
         <button class="filter-btn" onclick="filtrarTabla('critico')">Críticos / Altos</button>
       </div>
-      <input type="text" id="searchInput" class="search-input" placeholder="Buscar actividad, peligro o control..." onkeyup="buscarEnTabla()">
     </div>
 
     <div class="matrix-card">

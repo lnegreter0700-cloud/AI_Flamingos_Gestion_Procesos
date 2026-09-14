@@ -78,8 +78,15 @@ Todas las vistas `.html` deben ser 100% homogéneas y compatibles para embed en 
   - Contenedor raíz `.widget-container` (máximo 1240px, centrado).
   - Trama superior decorativa `.top-strip` con patrón `.strip-pattern`.
   - Encabezado `.header-bar` con `.eyebrow` dorado (`#E5A823`), `.main-title` bicolor (Azul `#16255C` y Cyan `#00A9B5`) y logotipo corporativo.
+    - **Homologación de Encabezados (Fichas y Matrices):** Tanto la Ficha Técnica como su Matriz de Riesgos asociada deben compartir el mismo Look & Feel para permitir su correlación inmediata:
+      - *Eyebrow Dorado:* `Macroproceso: [Nombre del Macroproceso]`
+      - *Título Principal Ficha:* `Ficha Técnica: <span class="highlight">[Nombre del Proceso]</span>`
+      - *Título Principal Matriz:* `Matriz de Riesgos: <span class="highlight">[Nombre del Proceso]</span>`
   - Tarjetas de metadatos (`.doc-meta-card` o `.control-doc-card`) con campos estandarizados. **La etiqueta de Revisión (.badge-rev) es obligatoriamente amarilla** (fondo `#FEF7E6`, texto `#D99E1A`, borde `rgba(229, 168, 35, 0.4)`). Prohibido usar badges cian para la revisión.
   - **Cuadro de Objetivo y Alcance (.process-summary-card):** Modelo canónico con **borde izquierdo sólido de 4px en Cyan (`border-left: 4px solid #00A9B5`)**, borde perimetral `1px solid #E2E8F0`, y sombra suave `box-shadow: 0 2px 8px rgba(0,0,0,0.02)`. Queda terminantemente prohibido usar bordes superiores azul marino (`border-top: 4px solid #16255C`). Debe incluir división interna de alcance con `Punto de Inicio` y `Punto de Término`.
+  - **Barra de Búsqueda y Filtros en Matrices de Riesgo:**
+    - El buscador (`.search-input` / `.search-box`) se ubica obligatoriamente del lado **izquierdo** para facilitar la consulta inmediata.
+    - Los botones de filtro (`.filter-group` / `.filter-pills`) se alinean del lado **derecho** (`Todos`, `Preventivos`, `Detectivos`, `Críticos / Correctivos`).
   - Tablas interactivas con encabezados en Azul Marino `#16255C`, badges de colores para estatus/roles/tipos de control, y scripts de filtrado/búsqueda en vivo integrados.
   - Sección de KPIs o resumen con diseño modular tipo tarjetas (`.kpi-card`) con acento izquierdo en Cyan `#00A9B5`.
   - Pie de página `.footer-note-box` con acento azul marino y barra dorada inferior `.bottom-gold-bar`.
