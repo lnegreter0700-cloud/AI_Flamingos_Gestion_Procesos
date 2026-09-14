@@ -61,5 +61,5 @@
 1. **Verbos en Infinitivo Obligatorios:** Todas las actividades operativas del SIPOC inician estrictamente con verbos en infinitivo (*Ingresar*, *Filtrar*, *Calcular*, *Cotejar*, *Evaluar*, *Exportar*, *Modificar*, *Registrar*, *Recalcular*).
 2. **Roles Válidos de Negocio:** Todos los responsables corresponden a cargos funcionales definidos (*Gestor de Efectivo*, *Coordinador de Tesorería*, *Auditor Interno*, *App Web Flamingos*).
 3. **Puntos Críticos de Control (TBC):**
-   * El sistema bloquea el módulo al inicio de jornada si el corte del día anterior no cuenta con cierre formal.
+   * El Coordinador de Tesorería realiza la revisión y validación manual del corte del día previo mediante lista de verificación (checklist) y firma en bitácora física de entrega-recepción previo al inicio operativo de cada jornada.
    * Toda modificación de estatus a transacción observada exige firma obligatoria de acuse de auditoría.
